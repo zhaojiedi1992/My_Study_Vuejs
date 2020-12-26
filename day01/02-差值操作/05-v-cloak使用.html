@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none   ;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app" v-cloak>
+    <h2  >{{ cnt }}</h2>
+
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    setTimeout(function(){
+    let app = new Vue({
+        el: "#app",
+        data: {
+            cnt: 1,
+        }
+    })},3000)
+</script>
+</body>
+</html>

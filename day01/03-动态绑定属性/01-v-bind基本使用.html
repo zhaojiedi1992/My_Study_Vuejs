@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <img :src="srcUrl" alt="">
+
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            srcUrl: "https://i1.hdslb.com/bfs/face/c850c18ae6b507d0ef34837f53a51090b6a7451f.jpg@96w_96h_1c.webp"
+        }
+    })
+</script>
+</body>
+</html>
