@@ -126,7 +126,7 @@ data和vue对象的分离
 vue中的mvvm
 ----------------------------
 
-.. image::  ../imgs/mvvm.png
+.. image::  ../images/mvvm.png
 
 View层：
     视图层

@@ -125,7 +125,7 @@ v-for和v-bind作业
 复杂使用
 -----------------------
 
-.. literalinclude:: ../../基础学习/04-计算属性/01-计算属性复杂使用.html
+.. literalinclude:: ../../基础学习/04-计算属性/02-计算属性复杂使用.html
    :encoding: utf-8
    :language: html
    :emphasize-lines: 18-22,12-14
@@ -169,12 +169,14 @@ getter和setter
 基本使用
 -----------------------
 
+
 .. literalinclude:: ../../基础学习/06-事件监听/01-事件监听的基本使用.html
    :encoding: utf-8
    :language: html
    :emphasize-lines: 18-22,12-14
    :linenos:
    :lines: 1,4-
+
 
 -----------------------
 参数传递
