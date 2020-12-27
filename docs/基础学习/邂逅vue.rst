@@ -125,3 +125,7 @@ getter和setter
 效果图
 
 .. image::  ../imgs/getterandsetter.png
+
+ES6的使用
+=============================
+

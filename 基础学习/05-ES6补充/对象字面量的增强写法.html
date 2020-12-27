@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2>{{ cnt }}</h2>
+
+</div>
+<script src="../js/vue.js"></script>
+<script>
+
+    // 属性简写
+    const name="panda"
+    const age =19
+    const height = 165
+
+    const obj = {
+        name: name,
+        age : age ,
+        height: height,
+    }
+    const obj2  = {
+        name,age,height
+    }
+
+    // 方法简写
+
+    app = new Vue({
+        el: '#app',
+        data: {
+            firstName: "panda",
+            secondName: 'panda'
+        },
+        // methods: {
+        //     getFullName: function(){
+        //         return this.firstName + this.secondName
+        //     }
+        // }
+        methods :{
+            getFullName() {
+                return this.firstName + this.secondName
+            },
+
+        }
+    })
+</script>
+</body>
+</html>

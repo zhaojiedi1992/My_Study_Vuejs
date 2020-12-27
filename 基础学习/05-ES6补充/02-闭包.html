@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button>button1</button>
+<button>button2</button>
+<button>button3</button>
+<button>button4</button>
+<button>button5</button>
+
+<script src="../js/vue.js"></script>
+<script>
+
+
+    // 函数有作用域，很多时候if for 没有块级别的作用域，需要借助function的作用域解决问题。
+    // 在es6 中， if for中let有作用域的。
+
+    // var btns = document.getElementsByTagName("button")
+    // for (var i =0; i <btns.length; i++){
+    //     btns[i].addEventListener('click',function(){
+    //         console.log('第'+i+'个被点击')
+    //     })
+    // }
+    var btns = document.getElementsByTagName("button")
+    for (let i =0; i <btns.length; i++){
+        btns[i].addEventListener('click',function(){
+            console.log('第'+i+'个被点击')
+        })
+    }
+
+</script>
+</body>
+</html>
