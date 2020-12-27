@@ -1,6 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="01149a70-9782-465e-8769-b90f3d80d808" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_build/html/.doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/html/.doctrees/environment.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_build/html/.doctrees/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/html/.doctrees/index.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_build/html/.doctrees/基础学习/邂逅vue.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/html/.doctrees/基础学习/邂逅vue.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_build/html/_sources/index.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/html/_sources/index.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_build/html/_sources/基础学习/邂逅vue.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/html/_sources/基础学习/邂逅vue.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_build/html/genindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/html/genindex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_build/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/html/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_build/html/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/html/objects.inv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_build/html/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/html/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_build/html/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/html/searchindex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_build/html/基础学习/邂逅vue.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_build/html/基础学习/邂逅vue.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/imgs/getterandsetter.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/images/getterandsetter.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/imgs/计算属性和方法的对比.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/images/计算属性和方法的对比.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/基础学习/基础语法.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/基础学习/基础语法.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/基础学习/邂逅vue.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/基础学习/邂逅vue.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/基础学习/02-差值操作/01-mustache语法.html" beforeDir="false" afterPath="$PROJECT_DIR$/基础学习/02-插值操作/01-mustache语法.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/基础学习/02-差值操作/02-v-once使用.html" beforeDir="false" afterPath="$PROJECT_DIR$/基础学习/02-插值操作/02-v-once使用.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/基础学习/02-差值操作/03-v-html使用.html" beforeDir="false" afterPath="$PROJECT_DIR$/基础学习/02-插值操作/03-v-html使用.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/基础学习/02-差值操作/04-v-text使用.html" beforeDir="false" afterPath="$PROJECT_DIR$/基础学习/02-插值操作/04-v-text使用.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/基础学习/02-差值操作/05-v-cloak使用.html" beforeDir="false" afterPath="$PROJECT_DIR$/基础学习/02-插值操作/05-v-cloak使用.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/基础学习/03-动态绑定属性/02-v-bind动态style绑定.html" beforeDir="false" afterPath="$PROJECT_DIR$/基础学习/03-动态绑定属性/03-v-bind动态style绑定.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/基础学习/03-动态绑定属性/03-作业for和bind.html" beforeDir="false" afterPath="$PROJECT_DIR$/基础学习/03-动态绑定属性/04-作业for和bind.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1mEXheSWHowJJePKu8LTFnVDDtU" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/基础学习/07-条件判断" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/基础学习/07-条件判断" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="01149a70-9782-465e-8769-b90f3d80d808" name="Default Changelist" comment="" />
+      <created>1609059845805</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1609059845805</updated>
+      <workItem from="1609059850011" duration="6246000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

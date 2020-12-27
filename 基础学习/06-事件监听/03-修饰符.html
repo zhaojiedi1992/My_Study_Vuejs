@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <div @click="divClick">
+        <button @click.stop="btnClick">button1</button>
+    </div>
+<!--    <div @click="divClick">-->
+<!--        <button @click="btnClick">button1</button>-->
+<!--    </div>-->
+
+    <form action="baidu">
+        <input type="submit" value="提交" @click.prevent="submitClick">
+    </form>
+
+        <input type="text" value="提交2" @keyup.enter="keyup">
+
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+
+        },
+        methods:{
+            btnClick(){
+                console.log("btn click")
+            },
+            divClick(){
+                console.log("div click")
+            },
+            submitClick(){
+                console.log("div click")
+            },
+            keyup(){
+                console.log("key up")
+            }
+        }
+    })
+</script>
+</body>
+</html>
