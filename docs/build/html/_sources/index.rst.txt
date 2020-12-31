@@ -1,14 +1,12 @@
 .. _topics-index:
 
-========================
-my_study_rst's 学习笔记
-========================
-
-我自己对rst文档的学习笔记
+====================================
+My_Study_Vuejs's 学习笔记
+====================================
 
 github地址_
 
-.. _github地址: https://github.com/zhaojiedi1992/vuestudy
+.. _github地址: https://github.com/zhaojiedi1992/My_Study_Vuejs
 
 .. toctree::
     :caption: 基础学习
