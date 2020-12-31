@@ -7,7 +7,7 @@
 
 通过插值操作可以完成vue对象的数据，填充到html中去。
 
-.. code-block:: vue
+.. code-block:: html
 
     <h2> {{ message }} </h2>
 
@@ -33,7 +33,7 @@ v-text
 -----------------------
 可以将数据中的html内容，以text展示到页面上。
 
-.. literalinclude:: ../../基础学习/02-插值操作/03-v-text使用.html
+.. literalinclude:: ../../基础学习/02-插值操作/04-v-text使用.html
    :encoding: utf-8
    :language: html
    :emphasize-lines: 18-22,12-14
@@ -341,12 +341,13 @@ html
    :linenos:
    :lines: 1,4-
 
+
 style
 -----------------------
 
 .. literalinclude:: ../../基础学习/09-购物车案例/style.css
    :encoding: utf-8
-   :language: html
+   :language: css
    :emphasize-lines: 18-22,12-14
    :linenos:
    :lines: 1,4-
@@ -356,7 +357,7 @@ js
 
 .. literalinclude:: ../../基础学习/09-购物车案例/main.js
    :encoding: utf-8
-   :language: html
+   :language: javascript
    :emphasize-lines: 18-22,12-14
    :linenos:
    :lines: 1,4-

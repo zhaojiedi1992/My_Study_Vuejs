@@ -223,7 +223,7 @@
 <div class="section" id="id2">
 <h2><span class="section-number">2.1. </span>插值操作<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>通过插值操作可以完成vue对象的数据，填充到html中去。</p>
-<div class="highlight-vue notranslate"><div class="highlight"><pre><span></span>&lt;h2&gt; {{ message }} &lt;/h2&gt;
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span> {{ message }} <span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <div class="section" id="v-once">
@@ -286,6 +286,55 @@
 <div class="section" id="v-text">
 <h3><span class="section-number">2.1.3. </span>v-text<a class="headerlink" href="#v-text" title="Permalink to this headline">¶</a></h3>
 <p>可以将数据中的html内容，以text展示到页面上。</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!doctype html&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span>
+          <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;ie=edge&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;app&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Using mustaches: {{ rawHtml }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Using v-text directive: <span class="p">&lt;</span><span class="nt">span</span> <span class="na">v-text</span><span class="o">=</span><span class="s">&quot;rawHtml&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="hll">
+</span><span class="hll"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span class="hll"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../js/vue.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kd">let</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+        <span class="nx">el</span><span class="o">:</span> <span class="s2">&quot;#app&quot;</span><span class="p">,</span>
+<span class="hll">        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+</span><span class="hll">            <span class="nx">rawHtml</span><span class="o">:</span> <span class="s1">&#39;&lt;span style=&quot;color:red&quot;&gt; this should be red&lt;/span&gt;&#39;</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">    <span class="p">})</span>
+</span><span class="hll"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
 </div>
 <div class="section" id="v-pre">
 <h3><span class="section-number">2.1.4. </span>v-pre<a class="headerlink" href="#v-pre" title="Permalink to this headline">¶</a></h3>
@@ -1792,33 +1841,29 @@
 39
 40
 41
-42
-43
-44</pre></div></td><td class="code"><div class="highlight"><pre><span></span>&lt;!DOCTYPE html&gt;
+42</pre></div></td><td class="code"><div class="highlight"><pre><span></span>&lt;!DOCTYPE html&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
     &lt;title&gt;Title&lt;/title&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
-
-
 
 &lt;/head&gt;
 &lt;body&gt;
 
 
-<span class="hll">&lt;div id=&quot;app&quot;&gt;
-</span><span class="hll">
-</span><span class="hll">    &lt;div v-if=&quot;infos.length&gt;=1&quot;&gt;
-</span>&lt;table&gt;
-    &lt;th&gt;
-        &lt;td&gt;书籍名称&lt;/td&gt;
-<span class="hll">        &lt;td&gt;出版日期&lt;/td&gt;
-</span><span class="hll">        &lt;td&gt;价格&lt;/td&gt;
-</span><span class="hll">        &lt;td&gt;购买数量&lt;/td&gt;
+&lt;div id=&quot;app&quot;&gt;
+
+<span class="hll">    &lt;div v-if=&quot;infos.length&gt;=1&quot;&gt;
+</span><span class="hll">&lt;table&gt;
+</span><span class="hll">    &lt;th&gt;
+</span>        &lt;td&gt;书籍名称&lt;/td&gt;
+        &lt;td&gt;出版日期&lt;/td&gt;
+        &lt;td&gt;价格&lt;/td&gt;
+<span class="hll">        &lt;td&gt;购买数量&lt;/td&gt;
 </span><span class="hll">        &lt;td&gt;操作&lt;/td&gt;
 </span><span class="hll">    &lt;/th&gt;
-</span>    &lt;tr v-for=&quot;(item,index) in infos&quot; &gt;
-        &lt;td&gt;{{index}}&lt;/td&gt;
-        &lt;td&gt;{{item.name}}&lt;/td&gt;
+</span><span class="hll">    &lt;tr v-for=&quot;(item,index) in infos&quot; &gt;
+</span><span class="hll">        &lt;td&gt;{{index}}&lt;/td&gt;
+</span>        &lt;td&gt;{{item.name}}&lt;/td&gt;
         &lt;td&gt;{{item.date}}&lt;/td&gt;
         &lt;td&gt;{{item.price|formatPrice}}&lt;/td&gt;
         &lt;td&gt;
@@ -1843,7 +1888,7 @@
 </div>
 <div class="section" id="id20">
 <h4><span class="section-number">2.7.2.2. </span>style<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-css notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -1855,25 +1900,25 @@
 10
 11
 12
-13</pre></div></td><td class="code"><div class="highlight"><pre><span></span>table{
-    border-spacing: 0;
-}
-th,td{
-    padding: 8px 16px;
-    border: 1px solid #e9e9e9;
-    text-align: left;
-}
-th{
-    background-color: #f7f7f7;
-    color: #5c6b77;
-<span class="hll">    font-weight: 600;
-</span><span class="hll">}
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nt">table</span><span class="p">{</span>
+    <span class="k">border-spacing</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">th</span><span class="o">,</span><span class="nt">td</span><span class="p">{</span>
+    <span class="k">padding</span><span class="p">:</span> <span class="mi">8</span><span class="kt">px</span> <span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">border</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span> <span class="mh">#e9e9e9</span><span class="p">;</span>
+    <span class="k">text-align</span><span class="p">:</span> <span class="kc">left</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">th</span><span class="p">{</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#f7f7f7</span><span class="p">;</span>
+    <span class="k">color</span><span class="p">:</span> <span class="mh">#5c6b77</span><span class="p">;</span>
+<span class="hll">    <span class="k">font-weight</span><span class="p">:</span> <span class="mi">600</span><span class="p">;</span>
+</span><span class="hll"><span class="p">}</span>
 </span></pre></div>
 </td></tr></table></div>
 </div>
 <div class="section" id="js">
 <h4><span class="section-number">2.7.2.3. </span>js<a class="headerlink" href="#js" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-javascript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -1908,42 +1953,42 @@ th{
 33
 34
 35
-36</pre></div></td><td class="code"><div class="highlight"><pre><span></span>let app = new Vue({
-        infos: [
-            {&quot;name&quot;: &quot;算法导论&quot;, &quot;date&quot;: &quot;2006-9&quot;, &quot;count&quot;: 1, &quot;price&quot;: 85},
-            {&quot;name&quot;: &quot;编程艺术&quot;, &quot;date&quot;: &quot;2006-2&quot;, &quot;count&quot;: 1, &quot;price&quot;: 59},
-            {&quot;name&quot;: &quot;编程珠玑&quot;, &quot;date&quot;: &quot;2008-10&quot;, &quot;count&quot;: 1, &quot;price&quot;: 39},
-            {&quot;name&quot;: &quot;代码大全&quot;, &quot;date&quot;: &quot;2006-3&quot;, &quot;count&quot;: 1, &quot;price&quot;: 128},
-        ],
+36</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+        <span class="nx">infos</span><span class="o">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;算法导论&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="o">:</span> <span class="s2">&quot;2006-9&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="o">:</span> <span class="mf">85</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;编程艺术&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="o">:</span> <span class="s2">&quot;2006-2&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="o">:</span> <span class="mf">59</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;编程珠玑&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="o">:</span> <span class="s2">&quot;2008-10&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="o">:</span> <span class="mf">39</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;代码大全&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="o">:</span> <span class="s2">&quot;2006-3&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="o">:</span> <span class="mf">128</span><span class="p">},</span>
+        <span class="p">],</span>
 
-    },
-    methods: {
-        add(item) {
-<span class="hll">            console.log(&quot;add&quot;)
-</span><span class="hll">           item.count++
-</span><span class="hll">        },
-</span>        sub(item) {
-           item.count--
-        },
-<span class="hll">        removeLine(index) {
-</span><span class="hll">            this.infos.splice(index, 1)
-</span><span class="hll">        }
-</span><span class="hll">    },
-</span><span class="hll">    filters: {
-</span>        formatPrice(price) {
-            return &quot;¥ &quot; + price.toFixed(2)
-        }
-    },
-    computed: {
-        totalPrice() {
-            let totalPriceSum = 0
-            for (let info of this.infos) {
-                totalPriceSum += info.count * info.price
-            }
-            return totalPriceSum
-        }
-    }
-})
+    <span class="p">},</span>
+    <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">add</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+<span class="hll">            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;add&quot;</span><span class="p">)</span>
+</span><span class="hll">           <span class="nx">item</span><span class="p">.</span><span class="nx">count</span><span class="o">++</span>
+</span><span class="hll">        <span class="p">},</span>
+</span>        <span class="nx">sub</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+           <span class="nx">item</span><span class="p">.</span><span class="nx">count</span><span class="o">--</span>
+        <span class="p">},</span>
+<span class="hll">        <span class="nx">removeLine</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">            <span class="k">this</span><span class="p">.</span><span class="nx">infos</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="mf">1</span><span class="p">)</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">    <span class="p">},</span>
+</span><span class="hll">    <span class="nx">filters</span><span class="o">:</span> <span class="p">{</span>
+</span>        <span class="nx">formatPrice</span><span class="p">(</span><span class="nx">price</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s2">&quot;¥ &quot;</span> <span class="o">+</span> <span class="nx">price</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">2</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nx">computed</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">totalPrice</span><span class="p">()</span> <span class="p">{</span>
+            <span class="kd">let</span> <span class="nx">totalPriceSum</span> <span class="o">=</span> <span class="mf">0</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">info</span> <span class="k">of</span> <span class="k">this</span><span class="p">.</span><span class="nx">infos</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">totalPriceSum</span> <span class="o">+=</span> <span class="nx">info</span><span class="p">.</span><span class="nx">count</span> <span class="o">*</span> <span class="nx">info</span><span class="p">.</span><span class="nx">price</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="nx">totalPriceSum</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">})</span>
 </pre></div>
 </td></tr></table></div>
 </div>
