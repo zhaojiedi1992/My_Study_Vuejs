@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(name,index) in names " :key="name">{{index }} {{ name}}</li>
+    </ul>
+
+    <button @click="btnClick">添加</button>
+
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            names: [ "panda","pdna02", "panda03"],
+            person:{
+                name: 'zhaojiedi',
+                age: 28,
+                weight: 60,
+            }
+        },
+        methods:{
+            btnClick(){
+                //push
+                // pop
+                // unshift
+                // splice
+                // sort
+                // reverse
+
+                this.names.push("panda05")
+
+                // 这是非响应式的。
+                this.names[0]="zhaojiedi"
+                // 这是响应式的
+                this.names.splice(1,1,"zhaojiedi")
+                //这是是响应式的
+                Vue.set(this.names,0,'zhaojiedi')
+            },
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+
+<div id="app">
+
+    <div v-if="infos.length>=1">
+<table>
+    <th>
+        <td>书籍名称</td>
+        <td>出版日期</td>
+        <td>价格</td>
+        <td>购买数量</td>
+        <td>操作</td>
+    </th>
+    <tr v-for="(item,index) in infos" >
+        <td>{{index}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.date}}</td>
+        <td>{{item.price|formatPrice}}</td>
+        <td>
+            <button @click="sub(item)" :disabled="item.count<=1">-</button>
+            {{item.count}}
+            <button @click="add(item)">+</button>
+        </td>
+        <td><button @click="removeLine(index)">移除</button></td>
+    </tr>
+</table>
+   总价: {{totalPrice|formatPrice}}
+    </div>
+    <h2 v-else>没有商品的</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script src="./main.js"></script>
+</body>
+</html>

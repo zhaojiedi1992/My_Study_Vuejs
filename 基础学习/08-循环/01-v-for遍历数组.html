@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(name,index) in names ">{{index }} {{ name}}</li>
+    </ul>
+
+    <ul>
+        <li v-for="(v,k,index) in person ">{{index }} {{ k}} {{ v}}</li>
+    </ul>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+           names: [ "panda","pdna02", "panda03"],
+            person:{
+               name: 'zhaojiedi',
+                age: 28,
+                weight: 60,
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -19,7 +19,7 @@
 <div id="app">
     <ul>
         <li v-for="(zoom,index) in zooms">
-            <p v-bind:class="{action: isActive}" @click="ChangeClass(index)"> {{index }} - {{ zoom }} </p>
+            <p v-bind:class="{active: curentIndex==index}" @click="ChangeClass($event,index)"> {{index }} - {{ zoom }} </p>
         </li>
     </ul>
 </div>
@@ -29,11 +29,12 @@
         el: "#app",
         data: {
             zooms: ['cat','dog','pig'],
+            curentIndex:0,
             isActive: false
         },
         methods:{
-            ChangeClass: function (index){
-                this.isActive = !this.isActive
+            ChangeClass: function (event,index){
+                this.curentIndex =index
             }
         }
     })
