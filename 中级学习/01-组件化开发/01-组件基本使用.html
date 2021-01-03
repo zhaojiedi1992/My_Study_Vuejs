@@ -6,15 +6,14 @@
 </head>
 <body>
 <div id="app">
-<!--    使用-->
-   <demo-cpt></demo-cpt>
+    <!--   使用-->
+    <demo-cpt></demo-cpt>
     <demo-cpt></demo-cpt>
     <demo-cpt></demo-cpt>
 
 </div>
 <script src="../js/vue.js"></script>
 <script>
-
     // 创建
     const demoCpt = Vue.extend(
         {
@@ -26,8 +25,8 @@
             `
         }
     )
-    // 祖册
-    Vue.component("demo-cpt",demoCpt)
+    // 注册
+    Vue.component("demo-cpt", demoCpt)
     let app = new Vue({
         el: "#app",
         data: {

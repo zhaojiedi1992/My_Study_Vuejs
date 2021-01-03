@@ -6,14 +6,10 @@
 </head>
 <body>
 <div id="app">
-
-
-
     <!--    使用-->
     <label> 第一个组件实例</label>
-    <demo-cpt @item-click="getSubInfo" ></demo-cpt>
-
-    <label >从子组件获取的值</label>
+    <demo-cpt @item-click="getSubInfo"></demo-cpt>
+    <label>从子组件获取的值</label>
     <h2> {{ subInfo}}</h2>
 
 </div>
@@ -21,7 +17,7 @@
 
 <template id="demoCpt">
     <div>
-       <button v-for="item in categories" @click="bntClick(item)"> {{item.name }}</button>
+        <button v-for="item in categories" @click="bntClick(item)"> {{item.name }}</button>
     </div>
 </template>
 
@@ -39,18 +35,18 @@
         data() {
 
             return {
-                categories:[
-                    {id:"123","name":"热门推荐"},
-                    {id:"124","name":"手机数码"},
-                    {id:"125","name":"电脑办公"},
-                    {id:"126","name":"家用家电"},
+                categories: [
+                    {id: "123", "name": "热门推荐"},
+                    {id: "124", "name": "手机数码"},
+                    {id: "125", "name": "电脑办公"},
+                    {id: "126", "name": "家用家电"},
                 ]
             }
         },
         methods: {
             bntClick(item) {
                 console.log(item)
-                this.$emit("item-click",item)
+                this.$emit("item-click", item)
             }
         }
 
@@ -64,8 +60,8 @@
             "demo-cpt": demoCpt
         },
         methods: {
-            getSubInfo(item){
-                this.subInfo= item.name
+            getSubInfo(item) {
+                this.subInfo = item.name
                 console.log(item)
             }
 
