@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+    <demo-cpt ></demo-cpt>
+
+</div>
+<script src="../js/vue.js"></script>
+
+<template id="demoCpt">
+    <div>
+       <h2>{{title}}</h2>
+        <button @click="showParentInfo">点击展示父组件信息</button>
+    </div>
+</template>
+
+
+<script>
+
+    const demoCpt = {
+        template: "#demoCpt",
+        props: {
+            "title": {
+                type: String,
+                default: "default title"
+            }
+        },
+        methods: {
+            showParentInfo(){
+                console.log(this.$parent)
+                alert(this.$parent.name)
+            }
+        }
+
+
+    }
+    let app = new Vue({
+        el: "#app",
+        data: {
+            "name": "panda"
+        },
+        components: {
+            "demo-cpt": demoCpt
+        },
+        methods: {
+            getSubInfo(){
+               // console.log(this.$children)
+                this.$refs["aaa"].showMessage()
+            }
+
+        },
+
+
+    })
+</script>
+</body>
+</html>

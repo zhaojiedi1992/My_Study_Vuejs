@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--    <textarea v-model="message"></textarea>-->
+    <textarea  :value="message" @input="message = $event.target.value"></textarea>
+    <p>输入的内容为: {{ message }}</p>
+
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            message : "",
+        }
+    })
+</script>
+</body>
+</html>

@@ -44,7 +44,7 @@ cdn方式推荐代码部署在服务器上面的比较好， 让用户可以使�
 .. code-block:: html
 
    <!-- 开发环境版本，包含了有帮助的命令行警告 --> 
-   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.vue"></script>
    <!-- 生产环境版本，优化了尺寸和速度 -->
    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
@@ -55,7 +55,7 @@ cdn方式推荐代码部署在服务器上面的比较好， 让用户可以使�
 
 .. code-block:: html
 
-   <script src="../js/vue.js"></script>
+   <script src="../js/vue.vue"></script>
 
 ----------------------------
 npm安装

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+<demo-cpt></demo-cpt>
+
+<demo-cpt v-slot:default="slotProps">
+    <span v-for="item in slotProps.languages">|{{ item }}|</span>
+</demo-cpt>
+
+    <demo-cpt></demo-cpt>
+</div>
+<script src="../js/vue.js"></script>
+
+<template id="demoCpt">
+    <div>
+       <slot :languages="languages">
+           <ul>
+               <li v-for="item in languages"> {{ item }}</li>
+           </ul>
+       </slot>
+    </div>
+</template>
+
+
+<script>
+
+    const demoCpt = {
+        template: "#demoCpt",
+        data(){
+            return {
+                languages: ["c","python","java","go"]
+
+            }
+        }
+    }
+    let app = new Vue({
+        el: "#app",
+        data: {
+            "name": "panda"
+        },
+        components: {
+            "demo-cpt": demoCpt
+        },
+    })
+</script>
+</body>
+</html>

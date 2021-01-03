@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+    <demo-cpt>
+      <span slot="left">返回</span>
+    </demo-cpt>
+
+
+</div>
+<script src="../js/vue.js"></script>
+
+<template id="demoCpt">
+    <div>
+        <slot name="left"></slot>
+        <slot name="center"></slot>
+        <slot name="right"></slot>
+    </div>
+</template>
+
+
+<script>
+
+    const demoCpt = {
+        template: "#demoCpt",
+    }
+    let app = new Vue({
+        el: "#app",
+        data: {
+            "name": "panda"
+        },
+        components: {
+            "demo-cpt": demoCpt
+        },
+    })
+</script>
+</body>
+</html>

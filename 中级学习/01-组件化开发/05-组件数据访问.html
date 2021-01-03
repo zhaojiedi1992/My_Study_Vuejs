@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+<demo-cpt></demo-cpt>
+</div>
+
+
+<script src="../js/vue.js"></script>
+
+
+<template  id="demoCpt">
+    <div>
+       <button @click="sub">-</button>
+            {{count }}
+        <button @click="add">+</button>
+    </div>
+</template>
+
+
+<script>
+
+    // 创建
+    Vue.component('demo-cpt',
+        {
+            template: '#demoCpt',
+            data(){
+                // 组件是复用的，保障每组件实例对象是有独立的数据地址空间的。使用函数解决。
+                return {
+                    count: 1
+                }
+
+            },
+            methods:{
+                add(){
+                    return this.count++
+                },
+                sub(){
+                    return this.count--
+                }
+
+            }
+        }
+    )
+
+    let app = new Vue({
+        el: "#app",
+        data: {
+            cnt: 1,
+        },
+    })
+</script>
+</body>
+</html>

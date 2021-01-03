@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+    <select name="front" id="" v-model="frout">
+        <option value="苹果" > 苹果</option>
+        <option value="香蕉" > 香蕉</option>
+        <option value="橙子" > 橙子</option>
+    </select>
+    <p>输入的内容为: {{ frout }}</p>
+
+
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+           frouts:[ "苹果","香蕉","橙子"],
+            frout:"苹果",
+        }
+    })
+</script>
+</body>
+</html>

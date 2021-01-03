@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+    <label > <input type="checkbox" v-model="hobbies" value="篮球">篮球</label>
+    <label > <input type="checkbox" v-model="hobbies" value="足球">足球</label>
+    <label > <input type="checkbox" v-model="hobbies" value="乒乓球">乒乓球</label>
+    <p>输入的内容为: {{ hobbies }}</p>
+
+    <label > <input type="checkbox" v-model="agree" >同意协议</label>
+    <p>输入的内容为: {{ agree }}</p>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            hobbies :[],
+            agree: true
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <label>
+        <input type="text" v-model="t1"> 第1个组件的值
+    </label>
+    <label>
+        <input type="text" v-model="t2"> 第2个组件的值
+    </label>
+    <!--    使用-->
+    <label> 第一个组件实例</label>
+    <demo-cpt :title="t1"></demo-cpt>
+    <label> 第2个组件实例</label>
+    <demo-cpt :title="t2"></demo-cpt>
+
+</div>
+<script src="../js/vue.js"></script>
+
+<template id="demoCpt">
+    <div>
+        <h2>{{title}}</h2>
+    </div>
+</template>
+
+
+<script>
+
+    const demoCpt = {
+        template: "#demoCpt",
+        props: {
+            "title": {
+                type: String,
+                default: "default title"
+            }
+        },
+        data() {
+
+            return {
+            }
+        },
+
+    }
+    let app = new Vue({
+        el: "#app",
+        data: {
+           t1: "abc",
+            t2: "def",
+        },
+        components: {
+            "demo-cpt": demoCpt
+        },
+        methods: {
+
+        }
+
+    })
+</script>
+</body>
+</html>

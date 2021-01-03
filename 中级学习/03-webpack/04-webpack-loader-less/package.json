@@ -1,0 +1,20 @@
+{
+  "name": "webpackconfig",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo ok ",
+    "install": "install ",
+    "build": "webpack "
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^5.0.1",
+    "less": "^4.0.0",
+    "less-loader": "^7.2.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.11.1"
+  }
+}

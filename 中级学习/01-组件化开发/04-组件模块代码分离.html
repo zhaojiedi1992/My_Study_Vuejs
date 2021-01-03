@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--    使用-->
+
+    <demo-cpt></demo-cpt>
+    <demo-cpt2></demo-cpt2>
+
+</div>
+
+
+<script src="../js/vue.js"></script>
+
+<script type="text/x-template" id="demoCpt">
+    <div>
+        <h2> 组件标题</h2>
+    </div>
+</script>
+
+<template  id="demoCpt2">
+    <div>
+        <h2> 组件标题</h2>
+    </div>
+</template>
+
+
+<script>
+
+    // 创建
+    Vue.component('demo-cpt',
+        {
+            template: '#demoCpt'
+        }
+    )
+    Vue.component('demo-cpt2',
+        {
+            template: '#demoCpt2'
+        }
+    )
+    let app = new Vue({
+        el: "#app",
+        data: {
+            cnt: 1,
+        },
+    })
+</script>
+</body>
+</html>
