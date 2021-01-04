@@ -20,6 +20,8 @@ github地址_
     :numbered:
 
     中级学习/组件化开发
+    中级学习/模块化
+    中级学习/webpack
     中级学习/CLI详解
     中级学习/router
     中级学习/vuex详解
