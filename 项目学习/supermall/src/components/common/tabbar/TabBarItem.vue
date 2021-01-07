@@ -9,7 +9,7 @@
     <div :class="{'tab-bar-item-active-font-class': isActive}">
       <slot name="text"></slot>
     </div>
-    <router-view></router-view>
+<!--    <router-view></router-view>-->
   </div>
 </template>
 
