@@ -26,13 +26,15 @@ name: "NavBar"
 
 .nav-bar  {
   display: flex;
-  position: fixed;
+  /*position: fixed;*/
+  /*top: 65px;*/
   left: 0;
-  top: 0;
+  /*top: 0;*/
   right: 0;
   /*height: 44px;*/
   line-height: 44px;
-  padding-top: 0;
+  text-align: center;
+  /*padding-top: 0;*/
 
 }
 .nav-bar-left {
@@ -46,6 +48,6 @@ name: "NavBar"
 .nav-bar-center{
   flex: 1;
   /*background-color: red;*/
-  text-align: center;
+
 }
 </style>

@@ -8,6 +8,7 @@
   <home-swiper :banners ="banners"></home-swiper>
   <recommend-view :recommends="recommends"></recommend-view>
   <home-feature></home-feature>
+  <tab-control  class="tab-control" :titles="titles"></tab-control>
 </div>
 </template>
 
@@ -16,6 +17,7 @@ import NavBar from "@/components/common/navbar/NavBar";
 import HomeSwiper from "@/views/home/childComponents/HomeSwiper";
 import RecommendView from "@/views/home/childComponents/RecommendView"
 import HomeFeature from "@/views/home/childComponents/HomeFeature";
+import TabControl from "@/components/content/tabcontrol/TabControl";
 import {HomeMultiData} from "@/network/home";
 export default {
 
@@ -25,11 +27,17 @@ export default {
     HomeSwiper,
     RecommendView,
     HomeFeature,
+    TabControl,
   },
   data(){
     return {
       banners:[],
       recommends:[],
+      titles:[
+        "流行",
+        "新款",
+        "精选",
+      ]
     }
   },
   created() {
@@ -50,12 +58,20 @@ export default {
 }
 #home{
   /*padding-top: 44px;*/
-  padding-top: 0;
-  padding-bottom: 0;
+  /*padding-top: 0;*/
+  /*padding-bottom: 0;*/
+  height: 2000px;
+  position: relative;
 }
 .home-nav{
   /*padding-top: 44px;*/
   z-index: 9;
-  position: relative;
+  position: fixed;
+}
+.tab-control{
+  position: sticky;
+  top: 35px;
+  background-color: #fff;
+  z-index: 9;
 }
 </style>
