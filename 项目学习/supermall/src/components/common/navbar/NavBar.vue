@@ -30,8 +30,10 @@ name: "NavBar"
   left: 0;
   top: 0;
   right: 0;
-  height: 44px;
+  /*height: 44px;*/
   line-height: 44px;
+  padding-top: 0;
+
 }
 .nav-bar-left {
   width: 60px;

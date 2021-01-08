@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h2>asdfas</h2>
   <tab-bar>
     <tab-bar-item path="/home">
       <img slot="icon" src="@/assets/img/tabbar/home.svg" alt="" >

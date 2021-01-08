@@ -1,5 +1,5 @@
 <template>
-<div>
+<div  id="home">
   <nav-bar class="home-nav">
     <div slot="center" >
       购物车
@@ -47,5 +47,15 @@ export default {
 .home-nav{
   background-color: var(--color-text);
   color: #fff;
+}
+#home{
+  /*padding-top: 44px;*/
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.home-nav{
+  /*padding-top: 44px;*/
+  z-index: 9;
+  position: relative;
 }
 </style>
