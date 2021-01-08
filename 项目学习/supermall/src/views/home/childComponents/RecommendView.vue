@@ -3,9 +3,10 @@
 <div v-for="(item,index) in recommends"  class="recommend-view-item" :key="item.title">
   <a :href="item.link">
     <img :src="item.image" alt="">
+    <div>{{item.title}}</div>
   </a>
 
-  <div>{{item.title}}</div>
+
 </div>
 </div>
 </template>
@@ -30,18 +31,24 @@ name: "RecommendView",
 <style scoped>
 .recommend-view{
   display: flex;
-  position: fixed;
-  left: 0;
-  right: 0;
+  /*position: fixed;*/
+  /*left: 0;*/
+  /*right: 0;*/
+  margin-top: 10px;
+  font-size: 14px;
+  padding-bottom: 30px;
+
 }
 .recommend-view-item{
   flex:1;
+  text-align: center;
 
 }
 .recommend-view-item img{
-  width: 68px;
-  height: 68px;
-  padding-left: 0;
-  padding-right: 0;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+  /*padding-left: 0;*/
+  /*padding-right: 0;*/
 }
 </style>
