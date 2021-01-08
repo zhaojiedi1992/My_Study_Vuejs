@@ -7,6 +7,7 @@
   </nav-bar>
   <home-swiper :banners ="banners"></home-swiper>
   <recommend-view :recommends="recommends"></recommend-view>
+  <home-feature></home-feature>
 </div>
 </template>
 
@@ -14,6 +15,7 @@
 import NavBar from "@/components/common/navbar/NavBar";
 import HomeSwiper from "@/views/home/childComponents/HomeSwiper";
 import RecommendView from "@/views/home/childComponents/RecommendView"
+import HomeFeature from "@/views/home/childComponents/HomeFeature";
 import {HomeMultiData} from "@/network/home";
 export default {
 
@@ -21,7 +23,8 @@ export default {
   components:{
     NavBar,
     HomeSwiper,
-    RecommendView
+    RecommendView,
+    HomeFeature,
   },
   data(){
     return {
