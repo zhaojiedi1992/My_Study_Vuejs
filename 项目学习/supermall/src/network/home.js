@@ -4,3 +4,12 @@ export function HomeMultiData(){
     url: '/home/multidata',
   })
 }
+export function HomeProductData(type,page){
+  return axios({
+    url: '/home/data',
+    params: {
+      type,
+      page,
+    }
+  })
+}
