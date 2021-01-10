@@ -9,7 +9,7 @@ import Profile from "@/views/profile/Profile";
 import ShopCart from "@/views/shopcart/ShopCart";
 
 const routes = [
-  { path: '', redirect: '/home' },
+  { path: '', redirect: '/category' },
   { path: '/home', component: Home },
   { path: '/category', component: Category },
   { path: '/shopcart', component: ShopCart },

@@ -1,7 +1,7 @@
 <template>
 <div class="good-list">
 
-  <goods-list-item v-for="(item,index) in goods " class="good-list-item">
+  <goods-list-item v-for="(item,index) in goods " class="good-list-item" :key="item.title">
       <img :src="item.show.img" alt="">
     <div class="good-info">
       <p>{{item.title}}</p>
