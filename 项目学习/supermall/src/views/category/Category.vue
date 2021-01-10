@@ -40,8 +40,15 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      this.scroll = new BScroll(this.$refs.wrapper, { pullUpLoad: true})
+      this.scroll = new BScroll(this.$refs.wrapper, {
+        //pullUpLoad: true,
+        probeType: 3
+      })
+      this.scroll.on('scroll',(position)=>{
+        console.log(position)
+      })
     })
+
   }
 }
 </script>
