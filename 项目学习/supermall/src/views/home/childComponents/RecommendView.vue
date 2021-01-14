@@ -31,9 +31,6 @@ name: "RecommendView",
 <style scoped>
 .recommend-view{
   display: flex;
-  /*position: fixed;*/
-  /*left: 0;*/
-  /*right: 0;*/
   margin-top: 10px;
   font-size: 14px;
   padding-bottom: 30px;
@@ -42,13 +39,10 @@ name: "RecommendView",
 .recommend-view-item{
   flex:1;
   text-align: center;
-
 }
 .recommend-view-item img{
   width: 80px;
   height: 80px;
   margin-bottom: 10px;
-  /*padding-left: 0;*/
-  /*padding-right: 0;*/
 }
 </style>

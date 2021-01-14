@@ -1,17 +1,25 @@
 <template>
-<div  id="home">
-  <nav-bar class="home-nav">
-    <div slot="center" >
-      购物车
+  <div id="home">
+    <nav-bar class="home-nav">
+      <div slot="center">
+        购物车
+      </div>
+    </nav-bar>
+    <scroll :probe-type="3"
+           :pull-up-load="true"
+           class="content"
+           ref="scroll">
+      <div class="content" ref="content">
+        <home-swiper :banners="banners" class="home-swiper"></home-swiper>
+        <recommend-view :recommends="recommends" class="recommend-view"></recommend-view>
+        <home-feature></home-feature>
+        <tab-control ref="tabControl" class="tab-control" :titles="baseInfo.titles" @tabClick="tabClick"></tab-control>
+        <goods-list :goods="contentData[tabIndex].list">
+        </goods-list>
+      </div>
+    </scroll>
+      <back-top @click.native="backTopClick"></back-top>
     </div>
-  </nav-bar>
-  <home-swiper :banners ="banners"></home-swiper>
-  <recommend-view :recommends="recommends"></recommend-view>
-  <home-feature></home-feature>
-  <tab-control  class="tab-control" :titles="baseInfo.titles" @tabClick="tabClick"></tab-control>
-  <goods-list :goods="contentData[tabIndex].list">
-  </goods-list>
-</div>
 </template>
 
 <script>
@@ -22,11 +30,15 @@ import HomeFeature from "@/views/home/childComponents/HomeFeature";
 import TabControl from "@/components/content/tabcontrol/TabControl";
 import GoodsList from "@/components/content/goods/GoodsList";
 import GoodsListItem from "@/components/content/goods/GoodsListItem";
-import {HomeMultiData , HomeProductData} from "@/network/home";
+import BackTop from "@/components/content/backtop/BackTop";
+import Scroll from "@/components/common/scroll/Scroll";
+
+import {HomeMultiData, HomeProductData} from "@/network/home";
+
 export default {
 
   name: "Home",
-  components:{
+  components: {
     GoodsListItem,
     NavBar,
     HomeSwiper,
@@ -34,91 +46,126 @@ export default {
     HomeFeature,
     TabControl,
     GoodsList,
+    Scroll,
+    BackTop,
 
   },
-  data(){
+  data() {
     return {
-      banners:[],
-      recommends:[],
-      baseInfo:{
+      banners: [],
+      recommends: [],
+      baseInfo: {
         // 基本信息一一对应的，
-        indexs:[
+        indexs: [
           0,
           1,
           2,
         ],
-        titles:[
+        titles: [
           "流行",
           "新款",
           "精选",
         ],
-        aliass:[
+        aliass: [
           'pop',
           'sell',
           'new',
         ]
       },
-      contentData:[
+      contentData: [
         // 对应上面的baseinfo,分别存放各类数据。
-        {page: 1,list:[]},
-        {page: 1,list:[]},
-        {page: 1,list:[]},
+        {page: 1, list: []},
+        {page: 1, list: []},
+        {page: 1, list: []},
       ],
       // 默认的tab索引
-      tabIndex:0,
+      tabIndex: 0,
 
     }
   },
   created() {
-    HomeMultiData().then(res=>{
-     //console.log("===================")
-      this.banners=res.data.data.banner.list
+    HomeMultiData().then(res => {
+      //console.log("===================")
+      this.banners = res.data.data.banner.list
       this.recommends = res.data.data.recommend.list
       //console.log(this.recommends)
     })
-    for (let index of this.baseInfo.indexs){
+    for (let index of this.baseInfo.indexs) {
       this.GetProductData(index)
     }
 
   },
-  methods:{
-    tabClick(index){
-      this.tabIndex=index
+  methods: {
+    tabClick(index) {
+      this.tabIndex = index
     },
-    GetProductData(  index ){
-      this.contentData[index].page+=1
-      HomeProductData(this.baseInfo.aliass[index],this.contentData[index].page).then(res=>{
+    GetProductData(index) {
+      this.contentData[index].page += 1
+      HomeProductData(this.baseInfo.aliass[index], this.contentData[index].page).then(res => {
         this.contentData[index].list.push(...res.data.data.list)
-        // console.log(this.contentData['pop'].list)
-       // console.log(this.contentData[type].list)
       })
     },
+    backTopClick(){
+      //console.log(this.scroll)
+      // console.log(this.$refs.wrapper);
+      // this.$refs.wrapper.scrollTo(0,0)
+     this.$refs.scroll.scrollTo(0,0,0.5)
+     // this.$refs.scroll.scroll.
+    }
 
-  }
+  },
+  mounted() {
+
+
+  },
 }
 </script>
 
 <style scoped>
-.home-nav{
-  background-color: var(--color-text);
-  color: #fff;
-}
-#home{
-  /*padding-top: 44px;*/
-  /*padding-top: 0;*/
-  /*padding-bottom: 0;*/
-  height: 2000px;
+
+
+#home {
+  height: 100vh;
   position: relative;
 }
-.home-nav{
-  /*padding-top: 44px;*/
+
+.home-nav {
   z-index: 9;
   position: fixed;
+  color: #fff;
+  background-color: var(--color-text);
 }
-.tab-control{
-  position: sticky;
-  top: 35px;
-  background-color: #fff;
+
+.tab-control {
+  position: relative;
   z-index: 9;
 }
+.wrapper{
+  /*position: relative;*/
+  /*top:44px;*/
+  /*bottom: 49px;*/
+  /*margin-top: 0;*/
+  overflow: hidden;
+  /*height: 1500px;*/
+}
+.content{
+  position: absolute;
+  /*background-color: red;*/
+  left: 0;
+  right: 0;
+  top: 44px;
+  bottom: 49px;
+  /*overflow: hidden;*/
+}
+/*.home-swiper{*/
+/*  position: relative;*/
+/*  !*top:44px;*!*/
+/*  left: 0;*/
+/*  right: 0;*/
+/*}*/
+/*.recommend-view{*/
+/*  position: relative;*/
+/*  left: 0;*/
+/*  right: 0;*/
+/*}*/
 </style>

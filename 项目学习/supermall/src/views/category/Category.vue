@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" ref="wrapper">
+  <div class="wrapper" >
     <ul class="content">
       <li>..1.</li>
       <li>..2.</li>
@@ -39,15 +39,20 @@ export default {
     }
   },
   mounted() {
-    this.$nextTick(() => {
-      this.scroll = new BScroll(this.$refs.wrapper, {
-        //pullUpLoad: true,
-        probeType: 3
-      })
-      this.scroll.on('scroll',(position)=>{
-        console.log(position)
-      })
-    })
+    // this.$nextTick(() => {
+    //   this.scroll = new BScroll(this.$refs.wrapper, {
+    //     pullUpLoad: true,
+    //     probeType: 2
+    //   })
+    //   this.scroll.on('scroll',(position)=>{
+    //     console.log(position)
+    //   })
+    //   this.scroll.on('pullingUp', () => {
+    //     //await fetchData()
+    //     console.log("加载更多")
+    //     this.scroll.finishPullUp()
+    //   })
+    // })
 
   }
 }

@@ -38,8 +38,9 @@ name: "TabControl",
   display: flex;
   font-size: 15px;
   text-align: center;
-  height: 40px;
+  /*height: 40px;*/
   line-height: 40px;
+  z-index: 1000;
 }
 .tab-control-item{
   flex: 1;
