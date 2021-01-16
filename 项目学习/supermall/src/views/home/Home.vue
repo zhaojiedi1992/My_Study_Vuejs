@@ -8,17 +8,20 @@
     <scroll :probe-type="3"
            :pull-up-load="true"
            class="content"
-           ref="scroll">
-      <div class="content" ref="content">
+           ref="scroll"
+            @pullingUp="LoadMore"
+            @scroll="ContentScroll"
+    >
+<!--      <div class="content" ref="content">-->
         <home-swiper :banners="banners" class="home-swiper"></home-swiper>
         <recommend-view :recommends="recommends" class="recommend-view"></recommend-view>
         <home-feature></home-feature>
         <tab-control ref="tabControl" class="tab-control" :titles="baseInfo.titles" @tabClick="tabClick"></tab-control>
         <goods-list :goods="contentData[tabIndex].list">
         </goods-list>
-      </div>
+<!--      </div>-->
     </scroll>
-      <back-top @click.native="backTopClick"></back-top>
+      <back-top @click.native="backTopClick" v-show="showBack2Top"></back-top>
     </div>
 </template>
 
@@ -81,6 +84,9 @@ export default {
       // 默认的tab索引
       tabIndex: 0,
 
+      //是否展示back to top 按钮
+      showBack2Top: false
+
     }
   },
   created() {
@@ -100,7 +106,10 @@ export default {
       this.tabIndex = index
     },
     GetProductData(index) {
+      console.log(index )
+      console.log(this.contentData[index])
       this.contentData[index].page += 1
+
       HomeProductData(this.baseInfo.aliass[index], this.contentData[index].page).then(res => {
         this.contentData[index].list.push(...res.data.data.list)
       })
@@ -111,10 +120,24 @@ export default {
       // this.$refs.wrapper.scrollTo(0,0)
      this.$refs.scroll.scrollTo(0,0,0.5)
      // this.$refs.scroll.scroll.
+    },
+    LoadMore(){
+      console.log("load more")
+      this.GetProductData(this.tabIndex)
+      this.$refs.scroll.finishedPullUp()
+    },
+    ContentScroll(position){
+      console.log(position)
+      this.showBack2Top = - position.y  > 1000
     }
 
   },
   mounted() {
+    this.$bus.$on("OneImageLoadFinish",()=>{
+        this.$refs.scroll.refresh()
+      }
+    )
+
 
 
   },

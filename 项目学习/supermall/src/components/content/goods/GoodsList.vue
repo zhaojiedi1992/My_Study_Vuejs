@@ -2,7 +2,7 @@
 <div class="good-list">
 
   <goods-list-item v-for="(item,index) in goods " class="good-list-item" :key="item.title">
-      <img :src="item.show.img" alt="">
+      <img :src="item.show.img" alt="" @load="ImageLoadFinish">
     <div class="good-info">
       <p>{{item.title}}</p>
       <span class="price">{{ item.price }}</span>
@@ -27,6 +27,12 @@ export default {
   components:{
     GoodsListItem
   },
+  methods:{
+    ImageLoadFinish(){
+      this.$bus.$emit("OneImageLoadFinish")
+    }
+
+  }
 }
 </script>
 

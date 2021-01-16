@@ -64,7 +64,7 @@
         // 3.上拉加载
         if (this.pullUpLoad) {
           this.scroll.on('pullingUp', () => {
-            // console.log('上拉加载更多');
+             console.log('上拉加载更多');
             this.$emit('pullingUp')
           })
         }
