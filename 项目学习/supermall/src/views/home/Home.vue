@@ -6,23 +6,23 @@
       </div>
     </nav-bar>
     <scroll :probe-type="3"
-           :pull-up-load="true"
-           class="content"
-           ref="scroll"
+            :pull-up-load="true"
+            class="content"
+            ref="scroll"
             @pullingUp="LoadMore"
             @scroll="ContentScroll"
     >
-<!--      <div class="content" ref="content">-->
-        <home-swiper :banners="banners" class="home-swiper"></home-swiper>
-        <recommend-view :recommends="recommends" class="recommend-view"></recommend-view>
-        <home-feature></home-feature>
-        <tab-control ref="tabControl" class="tab-control" :titles="baseInfo.titles" @tabClick="tabClick"></tab-control>
-        <goods-list :goods="contentData[tabIndex].list">
-        </goods-list>
-<!--      </div>-->
+      <!--      <div class="content" ref="content">-->
+      <home-swiper :banners="banners" class="home-swiper"></home-swiper>
+      <recommend-view :recommends="recommends" class="recommend-view"></recommend-view>
+      <home-feature></home-feature>
+      <tab-control ref="tabControl" class="tab-control" :titles="baseInfo.titles" @tabClick="tabClick"></tab-control>
+      <goods-list :goods="contentData[tabIndex].list">
+      </goods-list>
+      <!--      </div>-->
     </scroll>
-      <back-top @click.native="backTopClick" v-show="showBack2Top"></back-top>
-    </div>
+    <back-top @click.native="backTopClick" v-show="showBack2Top"></back-top>
+  </div>
 </template>
 
 <script>
@@ -85,7 +85,10 @@ export default {
       tabIndex: 0,
 
       //是否展示back to top 按钮
-      showBack2Top: false
+      showBack2Top: false,
+
+      //保存滚轮的位置为0
+      saveY: 0,
 
     }
   },
@@ -101,12 +104,19 @@ export default {
     }
 
   },
+  activated() {
+    this.$refs.scroll.scrollTo(0, this.saveY, 0)
+    this.$refs.scroll.refresh()
+  },
+  deactivated() {
+    this.saveY = this.$refs.scroll.scrollY
+  },
   methods: {
     tabClick(index) {
       this.tabIndex = index
     },
     GetProductData(index) {
-      console.log(index )
+      console.log(index)
       console.log(this.contentData[index])
       this.contentData[index].page += 1
 
@@ -114,30 +124,29 @@ export default {
         this.contentData[index].list.push(...res.data.data.list)
       })
     },
-    backTopClick(){
+    backTopClick() {
       //console.log(this.scroll)
       // console.log(this.$refs.wrapper);
       // this.$refs.wrapper.scrollTo(0,0)
-     this.$refs.scroll.scrollTo(0,0,0.5)
-     // this.$refs.scroll.scroll.
+      this.$refs.scroll.scrollTo(0, 0, 0.5)
+      // this.$refs.scroll.scroll.
     },
-    LoadMore(){
+    LoadMore() {
       console.log("load more")
       this.GetProductData(this.tabIndex)
       this.$refs.scroll.finishedPullUp()
     },
-    ContentScroll(position){
+    ContentScroll(position) {
       console.log(position)
-      this.showBack2Top = - position.y  > 1000
+      this.showBack2Top = -position.y > 1000
     }
 
   },
   mounted() {
-    this.$bus.$on("OneImageLoadFinish",()=>{
+    this.$bus.$on("OneImageLoadFinish", () => {
         this.$refs.scroll.refresh()
       }
     )
-
 
 
   },
@@ -163,7 +172,8 @@ export default {
   position: relative;
   z-index: 9;
 }
-.wrapper{
+
+.wrapper {
   /*position: relative;*/
   /*top:44px;*/
   /*bottom: 49px;*/
@@ -171,7 +181,8 @@ export default {
   overflow: hidden;
   /*height: 1500px;*/
 }
-.content{
+
+.content {
   position: absolute;
   /*background-color: red;*/
   left: 0;
@@ -180,6 +191,7 @@ export default {
   bottom: 49px;
   /*overflow: hidden;*/
 }
+
 /*.home-swiper{*/
 /*  position: relative;*/
 /*  !*top:44px;*!*/
