@@ -96,6 +96,7 @@ export default {
     HomeMultiData().then(res => {
       //console.log("===================")
       this.banners = res.data.data.banner.list
+      console.log(this.banners)
       this.recommends = res.data.data.recommend.list
       //console.log(this.recommends)
     })
@@ -116,8 +117,8 @@ export default {
       this.tabIndex = index
     },
     GetProductData(index) {
-      console.log(index)
-      console.log(this.contentData[index])
+      // console.log(index)
+      // console.log(this.contentData[index])
       this.contentData[index].page += 1
 
       HomeProductData(this.baseInfo.aliass[index], this.contentData[index].page).then(res => {
@@ -137,7 +138,7 @@ export default {
       this.$refs.scroll.finishedPullUp()
     },
     ContentScroll(position) {
-      console.log(position)
+      // console.log(position)
       this.showBack2Top = -position.y > 1000
     }
 

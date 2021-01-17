@@ -1,7 +1,7 @@
 <template>
 <div class="good-list">
 
-  <goods-list-item v-for="(item,index) in goods " class="good-list-item" :key="item.title" @click.native="DetailClick">
+  <goods-list-item v-for="(item,index) in goods " class="good-list-item" :key="item.title" @click.native="DetailClick(item.iid)">
       <img :src="item.show.img" alt="" @load="ImageLoadFinish">
     <div class="good-info">
       <p>{{item.title}}</p>
@@ -31,8 +31,11 @@ export default {
     ImageLoadFinish(){
       this.$bus.$emit("OneImageLoadFinish")
     },
-    DetailClick(){
+    DetailClick(iid){
+      console.log(iid)
       console.log("detail click");
+      this.$router.push("/detail/" +iid)
+
     }
 
   }
