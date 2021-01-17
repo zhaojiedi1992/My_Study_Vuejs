@@ -16,19 +16,34 @@ name: "TabControl",
       default(){
         return []
       }
-    }
+    },
+    // index:{
+    //   type: Number,
+    //   default(){
+    //     return 0
+    //   }
+    // }
   },
   data(){
     return {
-      currentIndex:0
+      currentIndex:   0
     }
 
   },
   methods:{
     itemClick(index ){
+      console.log("------"+index)
       this.currentIndex =index
       this.$emit("tabClick",index)
+    },
+    ChangeIndex(index){
+      console.log("------"+index)
+      this.currentIndex =index
+
     }
+  },
+  mounted() {
+     // this.ChangeIndex(2)
   }
 }
 </script>
