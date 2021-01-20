@@ -25,6 +25,7 @@
       <div v-for="index in 30">{{index }}</div>
     </div>
     </scroll>
+      <detail-card-bar></detail-card-bar>
   </div>
 </template>
 
@@ -34,6 +35,7 @@ import NavBar from "@/components/common/navbar/NavBar";
 import TabControl from "@/components/content/tabcontrol/TabControl";
 import DetailSwiper from "@/views/detail/childComponents/DetailSwiper";
 import DetailGoodInfo from "@/views/detail/childComponents/DetailGoodInfo";
+import DetailCardBar from "./childComponents/DetailCardBar" ;
 
 import Scroll from "@/components/common/scroll/Scroll";
 
@@ -47,6 +49,7 @@ export default {
     DetailSwiper,
     DetailGoodInfo,
     Scroll,
+    DetailCardBar,
   },
   data() {
     return {

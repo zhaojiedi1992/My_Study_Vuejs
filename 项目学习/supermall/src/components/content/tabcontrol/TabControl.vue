@@ -37,9 +37,10 @@ name: "TabControl",
       this.$emit("tabClick",index)
     },
     ChangeIndex(index){
-      console.log("------"+index)
-      this.currentIndex =index
-
+      if (index !== this.currentIndex){
+        console.log("------"+index)
+        this.currentIndex =index
+      }
     }
   },
   mounted() {
