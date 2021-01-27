@@ -1,0 +1,68 @@
+====================
+网络封装
+====================
+
+
+axios
+====================
+
+-----------------
+基本使用
+-----------------
+
+.. literalinclude:: ../../中级学习/08-axios/axioslearn/src/main.js
+   :encoding: utf-8
+   :language: javascript
+   :emphasize-lines: 1
+   :linenos: 
+   :start-after: [baseuse]
+   :end-before: [baseuse]
+
+
+-----------------
+get使用
+-----------------
+
+.. literalinclude:: ../../中级学习/08-axios/axioslearn/src/main.js
+   :encoding: utf-8
+   :language: javascript
+   :emphasize-lines: 1
+   :linenos: 
+   :start-after: [getuse]
+   :end-before: [getuse]
+
+-----------------
+config使用
+-----------------
+
+.. literalinclude:: ../../中级学习/08-axios/axioslearn/src/main.js
+   :encoding: utf-8
+   :language: javascript
+   :emphasize-lines: 1
+   :linenos: 
+   :start-after: [configuse]
+   :end-before: [configuse]
+
+-----------------
+并发使用
+-----------------
+
+.. literalinclude:: ../../中级学习/08-axios/axioslearn/src/main.js
+   :encoding: utf-8
+   :language: javascript
+   :emphasize-lines: 1
+   :linenos: 
+   :start-after: [concurrentuse]
+   :end-before: [concurrentuse]
+
+-----------------
+实例使用
+-----------------
+
+.. literalinclude:: ../../中级学习/08-axios/axioslearn/src/main.js
+   :encoding: utf-8
+   :language: javascript
+   :emphasize-lines: 1
+   :linenos: 
+   :start-after: [instanceuse]
+   :end-before: [instanceuse]

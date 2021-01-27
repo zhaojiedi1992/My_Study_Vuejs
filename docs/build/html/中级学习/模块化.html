@@ -1,0 +1,330 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. 模块化 &mdash; my-study-vuejs v0.0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. webpack" href="webpack.html" />
+    <link rel="prev" title="1. 组件化开发" href="%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> my-study-vuejs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">基础学习</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E9%82%82%E9%80%85vue.html">1. 邂逅vue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95.html">2. 基础语法</a></li>
+</ul>
+<p class="caption"><span class="caption-text">中级学习</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91.html">1. 组件化开发</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. 模块化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">2.1. 为什么需要模块化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">2.2. 使用模块作为出口的规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">2.3. 导出样例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#commonjs">2.3.1. CommonJS导出</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">2.3.2. CommonJS导入</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#es6">2.3.3. ES6导出</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">2.3.4. ES6导入</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webpack.html">3. webpack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="router.html">4. router</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vuex%E8%AF%A6%E8%A7%A3.html">5. vuex详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%BD%91%E7%BB%9C%E5%B0%81%E8%A3%85.html">6. 网络封装</a></li>
+</ul>
+<p class="caption"><span class="caption-text">项目学习</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98.html">1. 项目实战</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2.html">2. 项目部署</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3.html">3. 原理详解</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">my-study-vuejs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">2. </span>模块化</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/中级学习/模块化.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">2. </span>模块化<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">2.1. </span>为什么需要模块化<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>起初js只是完成一些简单的脚本处理，随着ajax的出现，慢慢形成了前后端分离的阶段。
+前段完成工作越来越多，代码被组织在多个js文件中，维护和管理是个严重的问题。</p>
+<p>需要解决2个问题</p>
+<ul class="simple">
+<li><p>复用性</p></li>
+<li><p>可维护性</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">2.2. </span>使用模块作为出口的规范<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>CommonJS</dt><dd><p>commonJS服务器端（nodeJS）的js模块规范,同步加载方式。</p>
+</dd>
+<dt>ADM</dt><dd><p>AMD是requireJS倡导的一种模块化规范，推崇依赖前置；在requireJS中模块是通过define来进行定义的，如果模块之间相互依赖，需要先将依赖模块导入进来，待导入完毕之后，在通过回调函数的方式执行后面的代码，有效的解决了模块依赖的问题。</p>
+</dd>
+<dt>ES6Moudle</dt><dd><p>使用import/export语法，在文件顶部导入需要的模块，特点是：静态化</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id4">
+<h2><span class="section-number">2.3. </span>导出样例<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="commonjs">
+<h3><span class="section-number">2.3.1. </span>CommonJS导出<a class="headerlink" href="#commonjs" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-javascript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="c1">// 导出</span>
+</span><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">flag</span><span class="o">:</span> <span class="nx">flag</span><span class="p">,</span>
+    <span class="nx">max</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">){</span>
+        <span class="k">return</span> <span class="nx">a</span><span class="o">&gt;</span><span class="nx">b</span> <span class="o">?</span> <span class="nx">a</span><span class="o">:</span><span class="nx">b</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id5">
+<h3><span class="section-number">2.3.2. </span>CommonJS导入<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-javascript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="kd">var</span> <span class="nx">max</span> <span class="o">=</span>  <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./01-模块化开发导出&quot;</span><span class="p">)</span>
+</span><span class="nx">max</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="mf">2</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="es6">
+<h3><span class="section-number">2.3.3. </span>ES6导出<a class="headerlink" href="#es6" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-javascript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="kd">let</span> <span class="nx">name</span><span class="o">=</span><span class="s1">&#39;xiaoming&#39;</span>
+</span><span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">a</span><span class="o">+</span><span class="nx">b</span>
+<span class="p">}</span>
+
+
+<span class="kr">export</span> <span class="p">{</span>
+    <span class="nx">name</span><span class="p">,</span><span class="nx">sum</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>text
+某些情况下，一个模块中包含某个的功能，我们并不希望给这个功能命名，而且让导入者可以自己来命名， 使用export default &lt;object&gt;</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h3><span class="section-number">2.3.4. </span>ES6导入<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-javascript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="kr">import</span> <span class="p">{</span><span class="nx">name</span><span class="p">,</span><span class="nx">sum</span><span class="p">}</span>  <span class="nx">from</span> <span class="s2">&quot;./xiaohong&quot;</span>
+</span>
+
+<span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">sum</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="mf">2</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c</span> <span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="webpack.html" class="btn btn-neutral float-right" title="3. webpack" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91.html" class="btn btn-neutral float-left" title="1. 组件化开发" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, zhaojiedi1992@outlook.com
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

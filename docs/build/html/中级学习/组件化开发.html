@@ -1,0 +1,1523 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. 组件化开发 &mdash; my-study-vuejs v0.0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. 模块化" href="%E6%A8%A1%E5%9D%97%E5%8C%96.html" />
+    <link rel="prev" title="2. 基础语法" href="../%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> my-study-vuejs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">基础学习</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E9%82%82%E9%80%85vue.html">1. 邂逅vue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95.html">2. 基础语法</a></li>
+</ul>
+<p class="caption"><span class="caption-text">中级学习</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. 组件化开发</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1.1. 认识组件化</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">1.1.1. 什么是组件化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">1.1.2. 组件化的思想</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">1.2. 注册组件</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">1.2.1. 基本步骤</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">1.2.2. 注册代码图</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">1.2.3. 详细代码实现</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">1.3. 组件其他补充</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id10">1.3.1. 全局组件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">1.3.2. 局部组件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">1.3.3. 父子组件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">1.3.4. 模块的分离写法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">1.4. 组件数据存放</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">1.5. 父子组件通信</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id16">1.5.1. 父级向子级传递</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">1.5.2. 子级向父级传递</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">1.5.3. 父访问子组件数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">1.5.4. 子访问父组件数据</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#slot">1.6. 插槽slot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id20">1.6.1. 编译作用域</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id21">1.6.2. 为什么使用slot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">1.6.3. slot的基本使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id23">1.6.4. 具名slot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%A8%A1%E5%9D%97%E5%8C%96.html">2. 模块化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webpack.html">3. webpack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="router.html">4. router</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vuex%E8%AF%A6%E8%A7%A3.html">5. vuex详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%BD%91%E7%BB%9C%E5%B0%81%E8%A3%85.html">6. 网络封装</a></li>
+</ul>
+<p class="caption"><span class="caption-text">项目学习</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98.html">1. 项目实战</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2.html">2. 项目部署</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3.html">3. 原理详解</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">my-study-vuejs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">1. </span>组件化开发</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/中级学习/组件化开发.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">1. </span>组件化开发<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">1.1. </span>认识组件化<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3><span class="section-number">1.1.1. </span>什么是组件化<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>组件化是讲一个页面进行拆分为一个一个小的功能块，每个功能块完成对应的功能，如下图。</p>
+<img alt="../_images/模块化.png" src="../_images/模块化.png" />
+</div>
+<div class="section" id="id4">
+<h3><span class="section-number">1.1.2. </span>组件化的思想<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>它提供了一种抽象，让我们可以开发出一个个独立可复用的小组件来构造我们的应用。</p></li>
+<li><p>任何的应用都会被抽象成一颗组件树。</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">1.2. </span>注册组件<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h3><span class="section-number">1.2.1. </span>基本步骤<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>组件的注册分如下3个阶段</p>
+<ol class="arabic simple">
+<li><p>创建组件构造器</p></li>
+<li><p>注册组件</p></li>
+<li><p>使用组件</p></li>
+</ol>
+</div>
+<div class="section" id="id7">
+<h3><span class="section-number">1.2.2. </span>注册代码图<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<img alt="../_images/组件步骤.png" src="../_images/组件步骤.png" />
+<ol class="arabic simple">
+<li><p>其中调用Vue.extend()创建的是一个组件构造器。</p></li>
+<li><p>调用Vue.component()是将刚才的组件构造器注册为一个组件。</p></li>
+<li><p>组件必须挂载在某个Vue实例下，否则它不会生效。</p></li>
+</ol>
+</div>
+<div class="section" id="id8">
+<h3><span class="section-number">1.2.3. </span>详细代码实现<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;app&quot;</span><span class="p">&gt;</span>
+    <span class="c">&lt;!--   使用--&gt;</span>
+    <span class="p">&lt;</span><span class="nt">demo-cpt</span><span class="p">&gt;&lt;/</span><span class="nt">demo-cpt</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">demo-cpt</span><span class="p">&gt;&lt;/</span><span class="nt">demo-cpt</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">demo-cpt</span><span class="p">&gt;&lt;/</span><span class="nt">demo-cpt</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../js/vue.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="c1">// 创建</span>
+    <span class="kr">const</span> <span class="nx">demoCpt</span> <span class="o">=</span> <span class="nx">Vue</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="nx">template</span><span class="o">:</span> <span class="sb">`</span>
+<span class="sb">            &lt;div&gt;</span>
+<span class="sb">                &lt;h2&gt; 组件标题&lt;/h2&gt;</span>
+<span class="sb">                &lt;p&gt; 组件内容&lt;/p&gt;</span>
+<span class="sb">            &lt;/div&gt;</span>
+<span class="sb">            `</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="c1">// 注册</span>
+    <span class="nx">Vue</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s2">&quot;demo-cpt&quot;</span><span class="p">,</span> <span class="nx">demoCpt</span><span class="p">)</span>
+    <span class="kd">let</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+        <span class="nx">el</span><span class="o">:</span> <span class="s2">&quot;#app&quot;</span><span class="p">,</span>
+        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">cnt</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2><span class="section-number">1.3. </span>组件其他补充<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id10">
+<h3><span class="section-number">1.3.1. </span>全局组件<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>通过Vue.component()注册的组件为全局的组件。意味这个组件是可以全局使用的。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Vue</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s2">&quot;demo-cpt&quot;</span><span class="p">,</span><span class="nx">demoCpt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3><span class="section-number">1.3.2. </span>局部组件<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>如果在特定的vue下的components属性指定的组件为局部组件，只能在特定的父组件使用的。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+        <span class="nx">el</span><span class="o">:</span> <span class="s2">&quot;#app&quot;</span><span class="p">,</span>
+        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">cnt</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="nx">components</span><span class="o">:</span><span class="p">{</span>
+            <span class="s2">&quot;demo-cpt2&quot;</span><span class="o">:</span> <span class="nx">demoCpt2</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id12">
+<h3><span class="section-number">1.3.3. </span>父子组件<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>组件和组件是有一定的层次关系的， 其中其中父子组件的是而非常重要的关系。</p>
+<img alt="../_images/父子组件.png" src="../_images/父子组件.png" />
+<p>代码如下:</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;app&quot;</span><span class="p">&gt;</span>
+        <span class="c">&lt;!--    使用--&gt;</span>
+        <span class="p">&lt;</span><span class="nt">demo-cpt2</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">demo-cpt</span><span class="p">&gt;&lt;/</span><span class="nt">demo-cpt</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">demo-cpt2</span><span class="p">&gt;</span>
+
+
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../js/vue.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="c1">// 创建</span>
+        <span class="kr">const</span> <span class="nx">demoCpt</span> <span class="o">=</span> <span class="nx">Vue</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+            <span class="nx">template</span><span class="o">:</span> <span class="sb">`</span>
+<span class="sb">            &lt;div&gt;</span>
+<span class="sb">                &lt;h2&gt; 组件标题&lt;/h2&gt;</span>
+<span class="sb">            &lt;/div&gt;</span>
+<span class="sb">            `</span>
+        <span class="p">})</span>
+        <span class="kr">const</span> <span class="nx">demoCpt2</span> <span class="o">=</span> <span class="nx">Vue</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+            <span class="nx">template</span><span class="o">:</span> <span class="sb">`</span>
+<span class="sb">            &lt;div&gt;</span>
+<span class="sb">                &lt;h2&gt; 组件标题2&lt;/h2&gt;</span>
+<span class="sb">                &lt;p&gt;haha&lt;/p&gt;</span>
+<span class="sb">                &lt;demo-cpt&gt;&lt;/demo-cpt&gt;</span>
+<span class="sb">                &lt;p&gt;haha&lt;/p&gt;</span>
+<span class="sb">            &lt;/div&gt;</span>
+<span class="sb">            `</span><span class="p">,</span>
+            <span class="nx">components</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;demo-cpt&quot;</span><span class="o">:</span> <span class="nx">demoCpt</span>
+            <span class="p">}</span>
+        <span class="p">})</span>
+
+        <span class="kd">let</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+            <span class="nx">el</span><span class="o">:</span> <span class="s2">&quot;#app&quot;</span><span class="p">,</span>
+            <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">cnt</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="nx">components</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;demo-cpt2&quot;</span><span class="o">:</span> <span class="nx">demoCpt2</span>
+            <span class="p">}</span>
+        <span class="p">})</span>
+    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id13">
+<h3><span class="section-number">1.3.4. </span>模块的分离写法<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>上面我们可以看到写一个组件内部还包含了html的代码，非常不方便管理和维护。可以通过如下方式进行改造。</p>
+<p>2中方式在代码中体现：</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll">&lt;!DOCTYPE html&gt;
+</span>&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+    &lt;!--    使用--&gt;
+
+    &lt;demo-cpt&gt;&lt;/demo-cpt&gt;
+    &lt;demo-cpt2&gt;&lt;/demo-cpt2&gt;
+
+&lt;/div&gt;
+
+
+&lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+
+&lt;script type=&quot;text/x-template&quot; id=&quot;demoCpt&quot;&gt;
+    &lt;div&gt;
+        &lt;h2&gt; 组件标题&lt;/h2&gt;
+    &lt;/div&gt;
+&lt;/script&gt;
+
+&lt;template  id=&quot;demoCpt2&quot;&gt;
+    &lt;div&gt;
+        &lt;h2&gt; 组件标题&lt;/h2&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+
+&lt;script&gt;
+
+    // 创建
+    Vue.component(&#39;demo-cpt&#39;,
+        {
+            template: &#39;#demoCpt&#39;
+        }
+    )
+    Vue.component(&#39;demo-cpt2&#39;,
+        {
+            template: &#39;#demoCpt2&#39;
+        }
+    )
+    let app = new Vue({
+        el: &quot;#app&quot;,
+        data: {
+            cnt: 1,
+        },
+    })
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="id14">
+<h2><span class="section-number">1.4. </span>组件数据存放<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<p>组件内的数据有个data属性，但是这个是一个函数的，通过这个函数返回一个dict对象即可。</p>
+<p>详细代码如下：</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll">&lt;!DOCTYPE html&gt;
+</span>&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+&lt;demo-cpt&gt;&lt;/demo-cpt&gt;
+&lt;/div&gt;
+
+
+&lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+
+
+&lt;template  id=&quot;demoCpt&quot;&gt;
+    &lt;div&gt;
+       &lt;button @click=&quot;sub&quot;&gt;-&lt;/button&gt;
+            {{count }}
+        &lt;button @click=&quot;add&quot;&gt;+&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+
+&lt;script&gt;
+
+    // 创建
+    Vue.component(&#39;demo-cpt&#39;,
+        {
+            template: &#39;#demoCpt&#39;,
+            data(){
+                // 组件是复用的，保障每组件实例对象是有独立的数据地址空间的。使用函数解决。
+                return {
+                    count: 1
+                }
+
+            },
+            methods:{
+                add(){
+                    return this.count++
+                },
+                sub(){
+                    return this.count--
+                }
+
+            }
+        }
+    )
+
+    let app = new Vue({
+        el: &quot;#app&quot;,
+        data: {
+            cnt: 1,
+        },
+    })
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>组件的data必须是一个函数的，不能是通过的字典，因为我们组件是复用的，组件复用后的数据一定是独立的。</p>
+</div>
+</div>
+<div class="section" id="id15">
+<h2><span class="section-number">1.5. </span>父子组件通信<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
+<p>官方文档中给出了父子组件的通信方式。</p>
+<ul class="simple">
+<li><p>通过props向子组件传递数据</p></li>
+<li><p>通过事件向父组件发送消息</p></li>
+</ul>
+<img alt="../_images/父子通信.png" src="../_images/父子通信.png" />
+<div class="section" id="id16">
+<h3><span class="section-number">1.5.1. </span>父级向子级传递<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<p>父组件向子组件创建数据，可以通过子组件提供props来传递。参考如下：</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;app&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&quot;t1&quot;</span><span class="p">&gt;</span> 第1个组件的值
+    <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&quot;t2&quot;</span><span class="p">&gt;</span> 第2个组件的值
+    <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+    <span class="c">&lt;!--    使用--&gt;</span>
+    <span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span> 第一个组件实例<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">demo-cpt</span> <span class="na">:title</span><span class="o">=</span><span class="s">&quot;t1&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">demo-cpt</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span> 第2个组件实例<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">demo-cpt</span> <span class="na">:title</span><span class="o">=</span><span class="s">&quot;t2&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">demo-cpt</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../js/vue.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">template</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;demoCpt&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>{{title}}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+
+    <span class="kr">const</span> <span class="nx">demoCpt</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">template</span><span class="o">:</span> <span class="s2">&quot;#demoCpt&quot;</span><span class="p">,</span>
+        <span class="nx">props</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+                <span class="k">default</span><span class="o">:</span> <span class="s2">&quot;default title&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+
+            <span class="k">return</span> <span class="p">{</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+
+    <span class="p">}</span>
+    <span class="kd">let</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+        <span class="nx">el</span><span class="o">:</span> <span class="s2">&quot;#app&quot;</span><span class="p">,</span>
+        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+           <span class="nx">t1</span><span class="o">:</span> <span class="s2">&quot;abc&quot;</span><span class="p">,</span>
+            <span class="nx">t2</span><span class="o">:</span> <span class="s2">&quot;def&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="nx">components</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;demo-cpt&quot;</span><span class="o">:</span> <span class="nx">demoCpt</span>
+        <span class="p">},</span>
+        <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+
+        <span class="p">}</span>
+
+    <span class="p">})</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id17">
+<h3><span class="section-number">1.5.2. </span>子级向父级传递<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<p>自组件向父组件传递数据，通过发射事件，然后父组件绑定事件即可。参考如下：</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll">&lt;!DOCTYPE html&gt;
+</span>&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+
+
+
+    &lt;!--    使用--&gt;
+    &lt;label&gt; 第一个组件实例&lt;/label&gt;
+    &lt;demo-cpt @item-click=&quot;getSubInfo&quot; &gt;&lt;/demo-cpt&gt;
+
+    &lt;label &gt;从子组件获取的值&lt;/label&gt;
+    &lt;h2&gt; {{ subInfo}}&lt;/h2&gt;
+
+&lt;/div&gt;
+&lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+
+&lt;template id=&quot;demoCpt&quot;&gt;
+    &lt;div&gt;
+       &lt;button v-for=&quot;item in categories&quot; @click=&quot;bntClick(item)&quot;&gt; {{item.name }}&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+
+&lt;script&gt;
+
+    const demoCpt = {
+        template: &quot;#demoCpt&quot;,
+        props: {
+            &quot;title&quot;: {
+                type: String,
+                default: &quot;default title&quot;
+            }
+        },
+        data() {
+
+            return {
+                categories:[
+                    {id:&quot;123&quot;,&quot;name&quot;:&quot;热门推荐&quot;},
+                    {id:&quot;124&quot;,&quot;name&quot;:&quot;手机数码&quot;},
+                    {id:&quot;125&quot;,&quot;name&quot;:&quot;电脑办公&quot;},
+                    {id:&quot;126&quot;,&quot;name&quot;:&quot;家用家电&quot;},
+                ]
+            }
+        },
+        methods: {
+            bntClick(item) {
+                console.log(item)
+                this.$emit(&quot;item-click&quot;,item)
+            }
+        }
+
+    }
+    let app = new Vue({
+        el: &quot;#app&quot;,
+        data: {
+            subInfo: {}
+        },
+        components: {
+            &quot;demo-cpt&quot;: demoCpt
+        },
+        methods: {
+            getSubInfo(item){
+                this.subInfo= item.name
+                console.log(item)
+            }
+
+        },
+
+
+    })
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id18">
+<h3><span class="section-number">1.5.3. </span>父访问子组件数据<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<p>父组件访问子组件：使用$children或$refs</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll">&lt;!DOCTYPE html&gt;
+</span>&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+    &lt;button @click=&quot;getSubInfo&quot;&gt;点击展示子组件信息&lt;/button&gt;
+    &lt;demo-cpt ref=&quot;aaa&quot;&gt;&lt;/demo-cpt&gt;
+
+&lt;/div&gt;
+&lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+
+&lt;template id=&quot;demoCpt&quot;&gt;
+    &lt;div&gt;
+       &lt;h2&gt;{{title}}&lt;/h2&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+
+&lt;script&gt;
+
+    const demoCpt = {
+        template: &quot;#demoCpt&quot;,
+        props: {
+            &quot;title&quot;: {
+                type: String,
+                default: &quot;default title&quot;
+            }
+        },
+        methods: {
+            showMessage(){
+                //console.log(this.title)
+                alert(this.title)
+            }
+        }
+
+
+    }
+    let app = new Vue({
+        el: &quot;#app&quot;,
+        data: {
+
+        },
+        components: {
+            &quot;demo-cpt&quot;: demoCpt
+        },
+        methods: {
+            getSubInfo(){
+               // console.log(this.$children)
+                this.$refs[&quot;aaa&quot;].showMessage()
+            }
+
+        },
+
+
+    })
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id19">
+<h3><span class="section-number">1.5.4. </span>子访问父组件数据<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<p>子组件访问父组件：使用$parent</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll">&lt;!DOCTYPE html&gt;
+</span>&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+    &lt;button @click=&quot;getSubInfo&quot;&gt;点击展示子组件信息&lt;/button&gt;
+    &lt;demo-cpt ref=&quot;aaa&quot;&gt;&lt;/demo-cpt&gt;
+
+&lt;/div&gt;
+&lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+
+&lt;template id=&quot;demoCpt&quot;&gt;
+    &lt;div&gt;
+       &lt;h2&gt;{{title}}&lt;/h2&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+
+&lt;script&gt;
+
+    const demoCpt = {
+        template: &quot;#demoCpt&quot;,
+        props: {
+            &quot;title&quot;: {
+                type: String,
+                default: &quot;default title&quot;
+            }
+        },
+        methods: {
+            showMessage(){
+                //console.log(this.title)
+                alert(this.title)
+            }
+        }
+
+
+    }
+    let app = new Vue({
+        el: &quot;#app&quot;,
+        data: {
+
+        },
+        components: {
+            &quot;demo-cpt&quot;: demoCpt
+        },
+        methods: {
+            getSubInfo(){
+               // console.log(this.$children)
+                this.$refs[&quot;aaa&quot;].showMessage()
+            }
+
+        },
+
+
+    })
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="slot">
+<h2><span class="section-number">1.6. </span>插槽slot<a class="headerlink" href="#slot" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id20">
+<h3><span class="section-number">1.6.1. </span>编译作用域<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<p>父组件模板的所有东西都会在父级作用域内编译；子组件模板的所有东西都会在子级作用域内编译。</p>
+</div>
+<div class="section" id="id21">
+<h3><span class="section-number">1.6.2. </span>为什么使用slot<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>组件的插槽也是为了让我们封装的组件更加具有扩展性。</p></li>
+<li><p>让使用者可以决定组件内部的一些内容到底展示什么。</p></li>
+</ul>
+</div>
+<div class="section" id="id22">
+<h3><span class="section-number">1.6.3. </span>slot的基本使用<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<p>在组件的模板定义中引入slot即可。</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;app&quot;</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">demo-cpt</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">button</span><span class="p">&gt;</span>haha<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">demo-cpt</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">demo-cpt</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>abc<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>abc<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>abc<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">demo-cpt</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">demo-cpt</span><span class="p">&gt;&lt;/</span><span class="nt">demo-cpt</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../js/vue.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">template</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;demoCpt&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>测试<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">slot</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">button</span><span class="p">&gt;</span>默认button<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">slot</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+
+    <span class="kr">const</span> <span class="nx">demoCpt</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">template</span><span class="o">:</span> <span class="s2">&quot;#demoCpt&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="kd">let</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+        <span class="nx">el</span><span class="o">:</span> <span class="s2">&quot;#app&quot;</span><span class="p">,</span>
+        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;panda&quot;</span>
+        <span class="p">},</span>
+        <span class="nx">components</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;demo-cpt&quot;</span><span class="o">:</span> <span class="nx">demoCpt</span>
+        <span class="p">},</span>
+    <span class="p">})</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id23">
+<h3><span class="section-number">1.6.4. </span>具名slot<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<p>当子组件的功能复杂时，子组件的插槽可能并非是一个,怎么方便控制用户想替换哪个slot？</p>
+<p>这就需要给slot起个名字，让用户选择给那个slot位置进行替换。</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;app&quot;</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">demo-cpt</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">slot</span><span class="o">=</span><span class="s">&quot;left&quot;</span><span class="p">&gt;</span>返回<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">demo-cpt</span><span class="p">&gt;</span>
+
+
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../js/vue.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">template</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;demoCpt&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">slot</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;left&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">slot</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">slot</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;center&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">slot</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">slot</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;right&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">slot</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+
+    <span class="kr">const</span> <span class="nx">demoCpt</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">template</span><span class="o">:</span> <span class="s2">&quot;#demoCpt&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="kd">let</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+        <span class="nx">el</span><span class="o">:</span> <span class="s2">&quot;#app&quot;</span><span class="p">,</span>
+        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;panda&quot;</span>
+        <span class="p">},</span>
+        <span class="nx">components</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;demo-cpt&quot;</span><span class="o">:</span> <span class="nx">demoCpt</span>
+        <span class="p">},</span>
+    <span class="p">})</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="%E6%A8%A1%E5%9D%97%E5%8C%96.html" class="btn btn-neutral float-right" title="2. 模块化" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95.html" class="btn btn-neutral float-left" title="2. 基础语法" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, zhaojiedi1992@outlook.com
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

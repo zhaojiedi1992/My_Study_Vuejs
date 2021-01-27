@@ -1,0 +1,723 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. webpack &mdash; my-study-vuejs v0.0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4. router" href="router.html" />
+    <link rel="prev" title="2. 模块化" href="%E6%A8%A1%E5%9D%97%E5%8C%96.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> my-study-vuejs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">基础学习</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E9%82%82%E9%80%85vue.html">1. 邂逅vue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95.html">2. 基础语法</a></li>
+</ul>
+<p class="caption"><span class="caption-text">中级学习</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91.html">1. 组件化开发</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%A8%A1%E5%9D%97%E5%8C%96.html">2. 模块化</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. webpack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">3.1. 认识webpack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">3.1.1. 什么是webpack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">3.1.2. 功能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#webpackgrunt-gulp">3.1.3. webpack和grunt/gulp的对比</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">3.2. webpack的安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">3.3. webpack的起步</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">3.4. webpack的配置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#webpack-config-js">3.4.1. webpack.config.js样例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#package-json">3.4.2. package.json 样例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">3.4.3. 构建</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#loader">3.5. loader的使用</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#css">3.5.1. css文件处理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#less">3.5.2. less文件处理</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#webpackvue">3.6. webpack中配置Vue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plugin">3.7. plugin的使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">3.8. 搭建本地服务器</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="router.html">4. router</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vuex%E8%AF%A6%E8%A7%A3.html">5. vuex详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%BD%91%E7%BB%9C%E5%B0%81%E8%A3%85.html">6. 网络封装</a></li>
+</ul>
+<p class="caption"><span class="caption-text">项目学习</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98.html">1. 项目实战</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2.html">2. 项目部署</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3.html">3. 原理详解</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">my-study-vuejs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">3. </span>webpack</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/中级学习/webpack.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="webpack">
+<h1><span class="section-number">3. </span>webpack<a class="headerlink" href="#webpack" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2><span class="section-number">3.1. </span>认识webpack<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3><span class="section-number">3.1.1. </span>什么是webpack<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>webpack是一个现代的JavaScript应用的静态模块打包工具。</p>
+</div>
+<div class="section" id="id3">
+<h3><span class="section-number">3.1.2. </span>功能<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>将webpack中的各种资源模块进行打包合并成一个或多个包(Bundle)。</p></li>
+<li><p>对资源进行处理，比如压缩图片，将scss转成css，将ES6语法转成ES5语法，将TypeScript转成JavaScript等等操作。</p></li>
+</ul>
+</div>
+<div class="section" id="webpackgrunt-gulp">
+<h3><span class="section-number">3.1.3. </span>webpack和grunt/gulp的对比<a class="headerlink" href="#webpackgrunt-gulp" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>grunt/gulp更加强调的是前端流程的自动化，模块化不是它的核心。</p></li>
+<li><p>webpack更加强调模块化开发管理，而文件压缩合并、预处理等功能，是他附带的功能。</p></li>
+</ul>
+<img alt="../_images/打包.png" src="../_images/打包.png" />
+</div>
+</div>
+<div class="section" id="id4">
+<h2><span class="section-number">3.2. </span>webpack的安装<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>前提环境是需要node的，然后需要有npm的， 最后通过npm安装webpack</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm install webpack --save-dev
+</pre></div>
+</div>
+<p>其中 –save-dev 是表示开发时依赖的。</p>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">3.3. </span>webpack的起步<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>目录说明</p>
+<dl class="simple">
+<dt>dist</dt><dd><p>用于存放打包后的文件，也就是后续我们生产环境需要的文件夹，其他的生产环境不需要。</p>
+</dd>
+<dt>src</dt><dd><p>源码文件夹，用于存放我们的开发文件。</p>
+</dd>
+<dt>index.html</dt><dd><p>首页文件</p>
+</dd>
+<dt>package.json</dt><dd><p>通过npm init生成的文件，</p>
+</dd>
+</dl>
+<img alt="../_images/webpack起步.png" src="../_images/webpack起步.png" />
+<p>通过如下命令可以完成打包</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># npm初始化</span>
+npm init
+<span class="c1"># 安装webpack</span>
+npm install webpack --save-dev
+<span class="c1"># 进行打包操作</span>
+webpack bundle  --entry  ./src/main.js -o ./dist/bundle.js
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>详细的具体代码点击右上角的github进入这个仓库找到工程进行测试。</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><span class="section-number">3.4. </span>webpack的配置<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>上面就是手工打包的一种方式了， 但是每次都要敲个命令去执行显然不是很方便的， 需要写成脚本方式的，然后执行才是正确做法。</p>
+<p>webpack提供一个机制，可以配置一个文件，然后直接执行webpack 即可完成构建。</p>
+<div class="section" id="webpack-config-js">
+<h3><span class="section-number">3.4.1. </span>webpack.config.js样例<a class="headerlink" href="#webpack-config-js" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-javascript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="kr">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">);</span>
+</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">entry</span><span class="o">:</span> <span class="s1">&#39;./main.js&#39;</span><span class="p">,</span>
+    <span class="nx">output</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">path</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;dist&#39;</span><span class="p">),</span>
+        <span class="nx">filename</span><span class="o">:</span> <span class="s1">&#39;my-first-webpack.bundle.js&#39;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="package-json">
+<h3><span class="section-number">3.4.2. </span>package.json 样例<a class="headerlink" href="#package-json" title="Permalink to this headline">¶</a></h3>
+<p>这个文件可以先通过npm init进行初始化，然后修改为如下。</p>
+<div class="highlight-json notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="p">{</span>
+</span>  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;webpackconfig&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;main&quot;</span><span class="p">:</span> <span class="s2">&quot;index.js&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;scripts&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;test&quot;</span><span class="p">:</span> <span class="s2">&quot;echo ok &quot;</span><span class="p">,</span>
+    <span class="nt">&quot;build&quot;</span><span class="p">:</span> <span class="s2">&quot;webpack&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;license&quot;</span><span class="p">:</span> <span class="s2">&quot;ISC&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;devDependencies&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;css-loader&quot;</span><span class="p">:</span> <span class="s2">&quot;^5.0.1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;mini-css-extract-plugin&quot;</span><span class="p">:</span> <span class="s2">&quot;^1.3.3&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;style-loader&quot;</span><span class="p">:</span> <span class="s2">&quot;^2.0.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;ts-loader&quot;</span><span class="p">:</span> <span class="s2">&quot;^8.0.13&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;webpack&quot;</span><span class="p">:</span> <span class="s2">&quot;^5.11.1&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id7">
+<h3><span class="section-number">3.4.3. </span>构建<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>上面的2个文件都创建和修改完毕后， 我们执行`npm run build` 就会从package.json文件找到`build`对应的脚本`webpack`进行执行，webpack在执行的时候会读取`webpack.config.js`作为配置文件
+进行构建。这样就构建起来非常方便了。</p>
+</div>
+</div>
+<div class="section" id="loader">
+<h2><span class="section-number">3.5. </span>loader的使用<a class="headerlink" href="#loader" title="Permalink to this headline">¶</a></h2>
+<p>上面的构建我们webpack完成了js的文件构建打包，但是文件还有其他的css,html等，这些文件webpack本身是无法进行处理的，需要借助loader完成处理。</p>
+<p>loader使用过程需要2个步骤。</p>
+<ol class="arabic simple">
+<li><p>通过npm安装需要使用的loader</p></li>
+<li><p>在webpack.config.js中的modules关键字下进行配置</p></li>
+</ol>
+<div class="section" id="css">
+<h3><span class="section-number">3.5.1. </span>css文件处理<a class="headerlink" href="#css" title="Permalink to this headline">¶</a></h3>
+<p>css的处理需要相关的css load 支持需要先安装对应的loader, 然后进行配置。</p>
+<p>安装loader</p>
+<p>进行配置</p>
+<div class="highlight-javascript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="kr">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">);</span>
+</span><span class="c1">//const MiniCssExtractPlugin = require(&quot;mini-css-extract-plugin&quot;);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">entry</span><span class="o">:</span> <span class="s1">&#39;./main.js&#39;</span><span class="p">,</span>
+    <span class="nx">output</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">path</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;dist&#39;</span><span class="p">),</span>
+        <span class="nx">filename</span><span class="o">:</span> <span class="s1">&#39;my-first-webpack.bundle.js&#39;</span>
+    <span class="p">},</span>
+    <span class="nx">module</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">rules</span><span class="o">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.css$/</span><span class="p">,</span>
+                <span class="nx">use</span><span class="o">:</span> <span class="p">[</span>
+                    <span class="p">{</span><span class="nx">loader</span><span class="o">:</span> <span class="s2">&quot;style-loader&quot;</span><span class="p">},</span>
+                    <span class="p">{</span><span class="nx">loader</span><span class="o">:</span> <span class="s2">&quot;css-loader&quot;</span><span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+<span class="p">};</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="less">
+<h3><span class="section-number">3.5.2. </span>less文件处理<a class="headerlink" href="#less" title="Permalink to this headline">¶</a></h3>
+<p>还是按照软件和对应的配置</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm install --save-dev less-loader less
+</pre></div>
+</div>
+<div class="highlight-javascript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="kr">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">);</span>
+</span>
+<span class="c1">//const MiniCssExtractPlugin = require(&quot;mini-css-extract-plugin&quot;);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">entry</span><span class="o">:</span> <span class="s1">&#39;./main.js&#39;</span><span class="p">,</span>
+    <span class="nx">output</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">path</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;dist&#39;</span><span class="p">),</span>
+        <span class="nx">filename</span><span class="o">:</span> <span class="s1">&#39;my-first-webpack.bundle.js&#39;</span>
+    <span class="p">},</span>
+    <span class="nx">module</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">rules</span><span class="o">:</span> <span class="p">[</span>
+            <span class="c1">// {</span>
+            <span class="c1">//</span>
+            <span class="c1">//     test: /\.css$/,</span>
+            <span class="c1">//     use: [</span>
+            <span class="c1">//         {loader: &quot;less-loader&quot;},</span>
+            <span class="c1">//         { loader:&quot;style-loader&quot; },</span>
+            <span class="c1">//         { loader:&quot;css-loader&quot; }</span>
+            <span class="c1">//     ]</span>
+            <span class="c1">//</span>
+            <span class="c1">// },</span>
+            <span class="p">{</span>
+                <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.less$/</span><span class="p">,</span>
+                <span class="nx">use</span><span class="o">:</span> <span class="p">[</span>
+                    <span class="p">{</span><span class="nx">loader</span><span class="o">:</span> <span class="s2">&quot;less-loader&quot;</span><span class="p">},</span>
+                    <span class="p">{</span> <span class="nx">loader</span><span class="o">:</span><span class="s2">&quot;style-loader&quot;</span> <span class="p">},</span>
+                    <span class="p">{</span> <span class="nx">loader</span><span class="o">:</span><span class="s2">&quot;css-loader&quot;</span> <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">},</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+
+
+<span class="p">};</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="webpackvue">
+<h2><span class="section-number">3.6. </span>webpack中配置Vue<a class="headerlink" href="#webpackvue" title="Permalink to this headline">¶</a></h2>
+<p>安装loader</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm install --save-dev vue-loader vue-template-compiler
+</pre></div>
+</div>
+<p>进行配置</p>
+<div class="highlight-javascript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="kr">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">)</span>
+</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">entry</span><span class="o">:</span> <span class="s1">&#39;./src/main.js&#39;</span><span class="p">,</span>
+  <span class="nx">output</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;dist&#39;</span><span class="p">),</span>
+    <span class="nx">filename</span><span class="o">:</span> <span class="s1">&#39;bundle.js&#39;</span><span class="p">,</span>
+    <span class="nx">publicPath</span><span class="o">:</span> <span class="s1">&#39;dist/&#39;</span>
+  <span class="p">},</span>
+  <span class="nx">module</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">rules</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.vue$/</span><span class="p">,</span>
+        <span class="nx">use</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;vue-loader&#39;</span><span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="plugin">
+<h2><span class="section-number">3.7. </span>plugin的使用<a class="headerlink" href="#plugin" title="Permalink to this headline">¶</a></h2>
+<p>插件是完成额外的附属的一些功能，比如添加版权信息。</p>
+<div class="highlight-javascript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="kr">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">)</span>
+</span><span class="kr">const</span> <span class="nx">webpack</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;webpack&#39;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">HtmlWebpackPlugin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;html-webpack-plugin&#39;</span><span class="p">);</span>
+<span class="c1">//&quot;html-webpack-plugin&quot;: &quot;^3.2.0&quot;,</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">entry</span><span class="o">:</span> <span class="s1">&#39;./src/main.js&#39;</span><span class="p">,</span>
+  <span class="nx">output</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;dist&#39;</span><span class="p">),</span>
+    <span class="nx">filename</span><span class="o">:</span> <span class="s1">&#39;bundle.js&#39;</span><span class="p">,</span>
+    <span class="nx">publicPath</span><span class="o">:</span> <span class="s1">&#39;dist/&#39;</span>
+  <span class="p">},</span>
+  <span class="nx">module</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">rules</span><span class="o">:</span> <span class="p">[</span>
+
+      <span class="p">{</span>
+        <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.vue$/</span><span class="p">,</span>
+        <span class="nx">use</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;vue-loader&#39;</span><span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="nx">plugins</span><span class="o">:</span><span class="p">[</span>
+    <span class="k">new</span> <span class="nx">webpack</span><span class="p">.</span><span class="nx">BannerPlugin</span><span class="p">({</span>
+      <span class="nx">banner</span><span class="o">:</span> <span class="sb">`</span>
+<span class="sb">      auth: zhaojiedi1992</span>
+<span class="sb">      email: zhaojiedi1992@outlook.com</span>
+<span class="sb">      protal: mit</span>
+<span class="sb">      `</span>
+    <span class="p">}),</span>
+    <span class="k">new</span> <span class="nx">HtmlWebpackPlugin</span><span class="p">({</span><span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;./src/index.html&#39;</span><span class="p">})</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id8">
+<h2><span class="section-number">3.8. </span>搭建本地服务器<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>webpack提供了一个可选的本地开发服务器，这个本地服务器基于node.js搭建，内部使用express框架，可以实现我们想要的让浏览器自动刷新显示我们修改后的结果。</p>
+<p>安装包</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm install --save-dev webpack-dev-server
+</pre></div>
+</div>
+<p>配置</p>
+<div class="highlight-javascript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="kr">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">)</span>
+</span><span class="kr">const</span> <span class="nx">webpack</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;webpack&#39;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">HtmlWebpackPlugin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;html-webpack-plugin&#39;</span><span class="p">);</span>
+<span class="c1">//&quot;html-webpack-plugin&quot;: &quot;^3.2.0&quot;,</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">entry</span><span class="o">:</span> <span class="s1">&#39;./src/main.js&#39;</span><span class="p">,</span>
+  <span class="nx">output</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;dist&#39;</span><span class="p">),</span>
+    <span class="nx">filename</span><span class="o">:</span> <span class="s1">&#39;bundle.js&#39;</span><span class="p">,</span>
+    <span class="nx">publicPath</span><span class="o">:</span> <span class="s1">&#39;dist/&#39;</span>
+  <span class="p">},</span>
+  <span class="nx">module</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">rules</span><span class="o">:</span> <span class="p">[</span>
+
+      <span class="p">{</span>
+        <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.vue$/</span><span class="p">,</span>
+        <span class="nx">use</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;vue-loader&#39;</span><span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+
+  <span class="nx">plugins</span><span class="o">:</span><span class="p">[</span>
+    <span class="k">new</span> <span class="nx">webpack</span><span class="p">.</span><span class="nx">BannerPlugin</span><span class="p">({</span>
+      <span class="nx">banner</span><span class="o">:</span> <span class="sb">`</span>
+<span class="sb">      auth: zhaojiedi1992</span>
+<span class="sb">      email: zhaojiedi1992@outlook.com</span>
+<span class="sb">      protal: mit</span>
+<span class="sb">      `</span>
+    <span class="p">}),</span>
+    <span class="k">new</span> <span class="nx">HtmlWebpackPlugin</span><span class="p">({</span>
+      <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;./src/index.html&#39;</span><span class="p">,</span>
+      <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;app&quot;</span>
+    <span class="p">})</span>
+  <span class="p">],</span>
+  <span class="nx">devServer</span><span class="o">:</span><span class="p">{</span>
+    <span class="nx">contentBase</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;dist&#39;</span><span class="p">),</span>
+    <span class="nx">compress</span><span class="o">:</span> <span class="kc">false</span> <span class="p">,</span>
+    <span class="nx">port</span><span class="o">:</span> <span class="mf">9000</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="router.html" class="btn btn-neutral float-right" title="4. router" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="%E6%A8%A1%E5%9D%97%E5%8C%96.html" class="btn btn-neutral float-left" title="2. 模块化" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, zhaojiedi1992@outlook.com
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,2057 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. 基础语法 &mdash; my-study-vuejs v0.0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. 组件化开发" href="../%E4%B8%AD%E7%BA%A7%E5%AD%A6%E4%B9%A0/%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91.html" />
+    <link rel="prev" title="1. 邂逅vue" href="%E9%82%82%E9%80%85vue.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> my-study-vuejs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">基础学习</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="%E9%82%82%E9%80%85vue.html">1. 邂逅vue</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. 基础语法</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">2.1. 插值操作</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#v-once">2.1.1. v-once</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#v-html">2.1.2. v-html</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#v-text">2.1.3. v-text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#v-pre">2.1.4. v-pre</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#v-cloak">2.1.5. v-cloak</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">2.2. 绑定属性</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">2.2.1. 绑定基本使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#class">2.2.2. 动态绑定class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#style">2.2.3. 动态绑定style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#v-forv-bind">2.2.4. v-for和v-bind作业</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">2.3. 计算属性</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">2.3.1. 基本使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">2.3.2. 复杂使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gettersetter">2.3.3. getter和setter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#methods">2.3.4. 计算属性和methods的对比</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">2.4. 事件监听</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">2.4.1. 监听基本使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">2.4.2. 参数传递</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">2.4.3. 修饰符</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">2.5. 条件判断</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#v-if">2.5.1. v-if</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#v-else-if">2.5.2. v-else-if</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">2.5.3. 用户登录案例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#v-show">2.5.4. v-show</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">2.6. 循环</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#v-for">2.6.1. v-for遍历数组</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">2.6.2. v-for遍历对象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#v-forkey">2.6.3. v-for遍历添加key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">2.6.4. v-for数组哪些是响应式的</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id17">2.7. 购入车案例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id18">2.7.1. 案例考察点分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">2.7.2. 详细代码</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#html">2.7.2.1. html</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id20">2.7.2.2. style</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#js">2.7.2.3. js</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">中级学习</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E4%B8%AD%E7%BA%A7%E5%AD%A6%E4%B9%A0/%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91.html">1. 组件化开发</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E4%B8%AD%E7%BA%A7%E5%AD%A6%E4%B9%A0/%E6%A8%A1%E5%9D%97%E5%8C%96.html">2. 模块化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E4%B8%AD%E7%BA%A7%E5%AD%A6%E4%B9%A0/webpack.html">3. webpack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E4%B8%AD%E7%BA%A7%E5%AD%A6%E4%B9%A0/router.html">4. router</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E4%B8%AD%E7%BA%A7%E5%AD%A6%E4%B9%A0/vuex%E8%AF%A6%E8%A7%A3.html">5. vuex详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E4%B8%AD%E7%BA%A7%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E5%B0%81%E8%A3%85.html">6. 网络封装</a></li>
+</ul>
+<p class="caption"><span class="caption-text">项目学习</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98.html">1. 项目实战</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2.html">2. 项目部署</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3.html">3. 原理详解</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">my-study-vuejs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">2. </span>基础语法</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/基础学习/基础语法.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">2. </span>基础语法<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">2.1. </span>插值操作<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>通过插值操作可以完成vue对象的数据，填充到html中去。</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span> {{ message }} <span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="v-once">
+<h3><span class="section-number">2.1.1. </span>v-once<a class="headerlink" href="#v-once" title="Permalink to this headline">¶</a></h3>
+<p>可以完成vue仅仅一次的数据绑定，后续的数据修改不在同步页面。</p>
+</div>
+<div class="section" id="v-html">
+<h3><span class="section-number">2.1.2. </span>v-html<a class="headerlink" href="#v-html" title="Permalink to this headline">¶</a></h3>
+<p>可以将数据中的html内容，以html展示到页面上。</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!doctype html&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span>
+          <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;ie=edge&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;app&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Using mustaches: {{ rawHtml }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Using v-html directive: <span class="p">&lt;</span><span class="nt">span</span> <span class="na">v-html</span><span class="o">=</span><span class="s">&quot;rawHtml&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="hll">
+</span><span class="hll"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span class="hll"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../js/vue.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kd">let</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+        <span class="nx">el</span><span class="o">:</span> <span class="s2">&quot;#app&quot;</span><span class="p">,</span>
+<span class="hll">        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+</span><span class="hll">            <span class="nx">rawHtml</span><span class="o">:</span> <span class="s1">&#39;&lt;span style=&quot;color:red&quot;&gt; this should be red&lt;/span&gt;&#39;</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">    <span class="p">})</span>
+</span><span class="hll"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="v-text">
+<h3><span class="section-number">2.1.3. </span>v-text<a class="headerlink" href="#v-text" title="Permalink to this headline">¶</a></h3>
+<p>可以将数据中的html内容，以text展示到页面上。</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!doctype html&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span>
+          <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;ie=edge&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;app&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Using mustaches: {{ rawHtml }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Using v-text directive: <span class="p">&lt;</span><span class="nt">span</span> <span class="na">v-text</span><span class="o">=</span><span class="s">&quot;rawHtml&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="hll">
+</span><span class="hll"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span class="hll"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../js/vue.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kd">let</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+        <span class="nx">el</span><span class="o">:</span> <span class="s2">&quot;#app&quot;</span><span class="p">,</span>
+<span class="hll">        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+</span><span class="hll">            <span class="nx">rawHtml</span><span class="o">:</span> <span class="s1">&#39;&lt;span style=&quot;color:red&quot;&gt; this should be red&lt;/span&gt;&#39;</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">    <span class="p">})</span>
+</span><span class="hll"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="v-pre">
+<h3><span class="section-number">2.1.4. </span>v-pre<a class="headerlink" href="#v-pre" title="Permalink to this headline">¶</a></h3>
+<p>用于跳过这个元素和他子元素的编译过程，用于展示原本内容。</p>
+</div>
+<div class="section" id="v-cloak">
+<h3><span class="section-number">2.1.5. </span>v-cloak<a class="headerlink" href="#v-cloak" title="Permalink to this headline">¶</a></h3>
+<p>某些情况下 ，浏览器可能会直接展示未编译的mustache标签。 通过此可以不展示这些信息。</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!doctype html&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span>
+          <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;ie=edge&quot;</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+        <span class="o">[</span><span class="nt">v-cloak</span><span class="o">]</span> <span class="p">{</span>
+            <span class="k">display</span><span class="p">:</span> <span class="kc">none</span>   <span class="p">;</span>
+        <span class="p">}</span>
+<span class="hll">    <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span><span class="hll"><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</span><span class="hll"><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;app&quot;</span> <span class="na">v-cloak</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span>  <span class="p">&gt;</span>{{ cnt }}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="hll">
+</span><span class="hll"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span class="hll"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../js/vue.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span class="hll"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span>    <span class="kd">let</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+        <span class="nx">el</span><span class="o">:</span> <span class="s2">&quot;#app&quot;</span><span class="p">,</span>
+        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">cnt</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">})},</span><span class="mf">3000</span><span class="p">)</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">2.2. </span>绑定属性<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>v-bind可以绑定属性。</p>
+<div class="section" id="id4">
+<h3><span class="section-number">2.2.1. </span>绑定基本使用<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;app&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">:src</span><span class="o">=</span><span class="s">&quot;srcUrl&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../js/vue.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="hll">    <span class="kd">let</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+</span><span class="hll">        <span class="nx">el</span><span class="o">:</span> <span class="s2">&quot;#app&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+</span>            <span class="nx">srcUrl</span><span class="o">:</span> <span class="s2">&quot;https://i1.hdslb.com/bfs/face/c850c18ae6b507d0ef34837f53a51090b6a7451f.jpg@96w_96h_1c.webp&quot;</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+<span class="hll"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span class="hll"><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span><span class="hll"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="class">
+<h3><span class="section-number">2.2.2. </span>动态绑定class<a class="headerlink" href="#class" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!doctype html&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span>
+          <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;ie=edge&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+        <span class="p">.</span><span class="nc">active</span><span class="p">{</span>
+            <span class="k">color</span><span class="p">:</span>  <span class="kc">red</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="p">.</span><span class="nc">line</span><span class="p">{</span>
+<span class="hll">            <span class="k">background-color</span><span class="p">:</span> <span class="kc">blue</span><span class="p">;</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">    <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;app&quot;</span><span class="p">&gt;</span>
+<span class="hll">    <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">v-bind:class</span><span class="o">=</span><span class="s">&quot;getClass()&quot;</span><span class="p">&gt;</span>{{message}}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</span><span class="hll">
+</span><span class="hll"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span class="hll"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../js/vue.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span class="hll"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span>    <span class="kd">let</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+        <span class="nx">el</span><span class="o">:</span> <span class="s2">&quot;#app&quot;</span><span class="p">,</span>
+        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;panda&quot;</span><span class="p">,</span>
+            <span class="nx">isActive</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nx">isLine</span><span class="o">:</span> <span class="kc">true</span>
+        <span class="p">},</span>
+        <span class="nx">methods</span><span class="o">:</span><span class="p">{</span>
+            <span class="nx">getClass</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+                <span class="k">return</span> <span class="p">{</span><span class="nx">active</span><span class="o">:</span><span class="k">this</span><span class="p">.</span><span class="nx">isActive</span><span class="p">,</span><span class="nx">line</span><span class="o">:</span><span class="k">this</span><span class="p">.</span><span class="nx">isLine</span><span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="style">
+<h3><span class="section-number">2.2.3. </span>动态绑定style<a class="headerlink" href="#style" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!doctype html&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span>
+          <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;ie=edge&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+        <span class="p">.</span><span class="nc">active</span><span class="p">{</span>
+            <span class="k">color</span><span class="p">:</span>  <span class="kc">red</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="p">.</span><span class="nc">line</span><span class="p">{</span>
+<span class="hll">            <span class="k">background-color</span><span class="p">:</span> <span class="kc">blue</span><span class="p">;</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">    <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;app&quot;</span><span class="p">&gt;</span>
+<span class="hll">    <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">v-bind:style</span><span class="o">=</span><span class="s">&quot;{fontSize: messageFontSize}&quot;</span><span class="p">&gt;</span>{{message}}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</span><span class="hll">
+</span><span class="hll"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span class="hll"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../js/vue.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span class="hll"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span>    <span class="kd">let</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+        <span class="nx">el</span><span class="o">:</span> <span class="s2">&quot;#app&quot;</span><span class="p">,</span>
+        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;panda&quot;</span><span class="p">,</span>
+            <span class="nx">messageFontSize</span><span class="o">:</span> <span class="s2">&quot;100px&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="nx">methods</span><span class="o">:</span><span class="p">{</span>
+
+        <span class="p">}</span>
+    <span class="p">})</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="v-forv-bind">
+<h3><span class="section-number">2.2.4. </span>v-for和v-bind作业<a class="headerlink" href="#v-forv-bind" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41</pre></div></td><td class="code"><div class="highlight"><pre><span></span>&lt;!doctype html&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot;
+          content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        .active{
+            color:  red;
+        }
+        .line{
+<span class="hll">            background-color: blue;
+</span><span class="hll">        }
+</span><span class="hll">    &lt;/style&gt;
+</span>&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+<span class="hll">    &lt;ul&gt;
+</span><span class="hll">        &lt;li v-for=&quot;(zoom,index) in zooms&quot;&gt;
+</span><span class="hll">            &lt;p v-bind:class=&quot;{active: curentIndex==index}&quot; @click=&quot;ChangeClass($event,index)&quot;&gt; {{index }} - {{ zoom }} &lt;/p&gt;
+</span><span class="hll">        &lt;/li&gt;
+</span><span class="hll">    &lt;/ul&gt;
+</span>&lt;/div&gt;
+&lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    let app = new Vue({
+        el: &quot;#app&quot;,
+        data: {
+            zooms: [&#39;cat&#39;,&#39;dog&#39;,&#39;pig&#39;],
+            curentIndex:0,
+            isActive: false
+        },
+        methods:{
+            ChangeClass: function (event,index){
+                this.curentIndex =index
+            }
+        }
+    })
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">2.3. </span>计算属性<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>可以根据已有的属性生成其他属性。</p>
+<div class="section" id="id6">
+<h3><span class="section-number">2.3.1. </span>基本使用<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;app&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>{{ fullName }}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../js/vue.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="hll">    <span class="kd">let</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+</span><span class="hll">        <span class="nx">el</span><span class="o">:</span> <span class="s2">&quot;#app&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+</span>            <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&quot;jie di&quot;</span><span class="p">,</span>
+            <span class="nx">secondName</span><span class="o">:</span> <span class="s2">&quot;zhao&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+<span class="hll">        <span class="nx">computed</span><span class="o">:</span><span class="p">{</span>
+</span><span class="hll">            <span class="nx">fullName</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(){</span>
+</span><span class="hll">                <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">secondName</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span>
+</span><span class="hll">            <span class="p">}</span>
+</span><span class="hll">        <span class="p">}</span>
+</span>    <span class="p">})</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id7">
+<h3><span class="section-number">2.3.2. </span>复杂使用<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;app&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>{{ totalPrice }}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../js/vue.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="hll">    <span class="kd">let</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+</span><span class="hll">        <span class="nx">el</span><span class="o">:</span> <span class="s2">&quot;#app&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+</span>            <span class="nx">books</span><span class="o">:</span> <span class="p">[</span>
+                <span class="p">{</span><span class="nx">id</span><span class="o">:</span><span class="mf">1</span><span class="p">,</span><span class="nx">name</span><span class="o">:</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span><span class="nx">price</span><span class="o">:</span><span class="mf">100</span><span class="p">},</span>
+                <span class="p">{</span><span class="nx">id</span><span class="o">:</span><span class="mf">2</span><span class="p">,</span><span class="nx">name</span><span class="o">:</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span><span class="nx">price</span><span class="o">:</span><span class="mf">101</span><span class="p">},</span>
+<span class="hll">                <span class="p">{</span><span class="nx">id</span><span class="o">:</span><span class="mf">3</span><span class="p">,</span><span class="nx">name</span><span class="o">:</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span><span class="nx">price</span><span class="o">:</span><span class="mf">102</span><span class="p">},</span>
+</span><span class="hll">                <span class="p">{</span><span class="nx">id</span><span class="o">:</span><span class="mf">4</span><span class="p">,</span><span class="nx">name</span><span class="o">:</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span><span class="nx">price</span><span class="o">:</span><span class="mf">103</span><span class="p">},</span>
+</span><span class="hll">            <span class="p">]</span>
+</span><span class="hll">        <span class="p">},</span>
+</span><span class="hll">        <span class="nx">computed</span><span class="o">:</span><span class="p">{</span>
+</span>            <span class="nx">totalPrice</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(){</span>
+                <span class="kd">let</span> <span class="nx">result</span><span class="o">=</span><span class="mf">0</span>
+                <span class="c1">// for (let i=0; i&lt; this.books.length; i++){</span>
+                <span class="c1">//     result +=this.books[i].price</span>
+                <span class="c1">// }</span>
+                <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">book</span> <span class="k">of</span> <span class="k">this</span><span class="p">.</span><span class="nx">books</span><span class="p">){</span>
+                    <span class="nx">result</span> <span class="o">+=</span> <span class="nx">book</span><span class="p">.</span><span class="nx">price</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="nx">result</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="gettersetter">
+<h3><span class="section-number">2.3.3. </span>getter和setter<a class="headerlink" href="#gettersetter" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!doctype html&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span>
+          <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;ie=edge&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;app&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>{{ fullName }}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+
+<span class="hll"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span class="hll"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../js/vue.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span class="hll"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span>    <span class="kd">let</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+        <span class="nx">el</span><span class="o">:</span> <span class="s2">&quot;#app&quot;</span><span class="p">,</span>
+        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+<span class="hll">            <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&quot;jiedi&quot;</span><span class="p">,</span>
+</span><span class="hll">            <span class="nx">secondName</span><span class="o">:</span> <span class="s2">&quot;zhao&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="p">},</span>
+</span><span class="hll">        <span class="nx">computed</span><span class="o">:</span><span class="p">{</span>
+</span><span class="hll">            <span class="c1">// fullName: function(){</span>
+</span>            <span class="c1">//     return this.firstName+ this.secondName</span>
+            <span class="c1">// },</span>
+
+            <span class="nx">fullName</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">get</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(){</span>
+                    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">secondName</span>
+                <span class="p">},</span>
+                <span class="nx">set</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">newValue</span><span class="p">){</span>
+                    <span class="kr">const</span> <span class="nx">names</span> <span class="o">=</span> <span class="nx">newValue</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+                    <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">=</span> <span class="nx">names</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span>
+                    <span class="k">this</span><span class="p">.</span><span class="nx">secondName</span> <span class="o">=</span><span class="nx">names</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+
+        <span class="p">}</span>
+    <span class="p">})</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<img alt="../_images/getterandsetter.png" src="../_images/getterandsetter.png" />
+</div>
+<div class="section" id="methods">
+<h3><span class="section-number">2.3.4. </span>计算属性和methods的对比<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+<p>计算属性是缓存的， 方法是不缓存的。</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;app&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>{{ fullName }}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>{{ fullName }}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>{{ fullName }}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>{{ fullName }}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>{{ getFullName() }}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="hll">    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>{{ getFullName() }}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>{{ getFullName() }}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>{{ getFullName() }}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../js/vue.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="hll"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="kd">let</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+</span><span class="hll">            <span class="nx">el</span><span class="o">:</span> <span class="s2">&quot;#app&quot;</span><span class="p">,</span>
+</span><span class="hll">            <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+</span><span class="hll">                <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&quot;jie di&quot;</span><span class="p">,</span>
+</span>                <span class="nx">secondName</span><span class="o">:</span> <span class="s2">&quot;zhao&quot;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="nx">methods</span><span class="o">:</span><span class="p">{</span>
+                <span class="nx">getFullName</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+                    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;------getFullName------&quot;</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">secondName</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span>
+                <span class="p">},</span>
+            <span class="p">},</span>
+            <span class="nx">computed</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">fullName</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;------fullName------&quot;</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">secondName</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">})</span>
+        <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<img alt="../_images/计算属性和方法的对比.png" src="../_images/计算属性和方法的对比.png" />
+</div>
+</div>
+<div class="section" id="id8">
+<h2><span class="section-number">2.4. </span>事件监听<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>事件监听用于在用户点击、拖拽等场景。</p>
+<div class="section" id="id9">
+<h3><span class="section-number">2.4.1. </span>监听基本使用<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre></div></td><td class="code"><div class="highlight"><pre><span></span>&lt;!doctype html&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot;
+          content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+
+&lt;div id=&quot;app&quot;&gt;
+<span class="hll">    &lt;h2&gt;{{ cnt }}&lt;/h2&gt;
+</span><span class="hll">    &lt;button @click=&quot;add&quot;&gt;+&lt;/button&gt;
+</span><span class="hll">    &lt;button @click=&quot;sub&quot;&gt;-&lt;/button&gt;
+</span>
+&lt;/div&gt;
+&lt;script&gt;
+<span class="hll">    let app = new Vue({
+</span><span class="hll">        el: &quot;#app&quot;,
+</span><span class="hll">        data: {
+</span><span class="hll">            cnt:1,
+</span><span class="hll">        },
+</span>        methods:{
+            add: function (){
+                this.cnt+=1
+                console.log(&quot;-----add-------&quot; )
+            },
+            sub: function(){
+                this.cnt-=1
+                console.log(&quot;-----sub-------&quot; )
+            }
+        }
+
+    })
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id10">
+<h3><span class="section-number">2.4.2. </span>参数传递<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span>&lt;!DOCTYPE html&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+    &lt;button @click=&quot;bntClick&quot;&gt;按钮1&lt;/button&gt;
+    &lt;button @click=&quot;bntClick2(12,$event)&quot;&gt;按钮2&lt;/button&gt;
+
+&lt;/div&gt;
+&lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+<span class="hll">&lt;script&gt;
+</span><span class="hll">    let app = new Vue({
+</span><span class="hll">        el: &quot;#app&quot;,
+</span>        data: {
+            cnt: 1,
+        },
+<span class="hll">        methods:{
+</span><span class="hll">            bntClick(event){
+</span><span class="hll">                console.log(event)
+</span><span class="hll">            },
+</span><span class="hll">            bntClick2(abc,event){
+</span>                console.log(&quot;第一个参数:&quot; + abc)
+                console.log(&quot;第二个参数:&quot; + event)
+            },
+        }
+    })
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</td></tr></table></div>
+<img alt="../_images/事件参数.png" src="../_images/事件参数.png" />
+</div>
+<div class="section" id="id11">
+<h3><span class="section-number">2.4.3. </span>修饰符<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</pre></div></td><td class="code"><div class="highlight"><pre><span></span>&lt;!DOCTYPE html&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+    &lt;div @click=&quot;divClick&quot;&gt;
+        &lt;button @click.stop=&quot;btnClick&quot;&gt;button1&lt;/button&gt;
+    &lt;/div&gt;
+&lt;!--    &lt;div @click=&quot;divClick&quot;&gt;--&gt;
+&lt;!--        &lt;button @click=&quot;btnClick&quot;&gt;button1&lt;/button&gt;--&gt;
+<span class="hll">&lt;!--    &lt;/div&gt;--&gt;
+</span><span class="hll">
+</span><span class="hll">    &lt;form action=&quot;baidu&quot;&gt;
+</span>        &lt;input type=&quot;submit&quot; value=&quot;提交&quot; @click.prevent=&quot;submitClick&quot;&gt;
+    &lt;/form&gt;
+
+<span class="hll">        &lt;input type=&quot;text&quot; value=&quot;提交2&quot; @keyup.enter=&quot;keyup&quot;&gt;
+</span><span class="hll">
+</span><span class="hll">&lt;/div&gt;
+</span><span class="hll">&lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+</span><span class="hll">&lt;script&gt;
+</span>    let app = new Vue({
+        el: &quot;#app&quot;,
+        data: {
+
+        },
+        methods:{
+            btnClick(){
+                console.log(&quot;btn click&quot;)
+            },
+            divClick(){
+                console.log(&quot;div click&quot;)
+            },
+            submitClick(){
+                console.log(&quot;div click&quot;)
+            },
+            keyup(){
+                console.log(&quot;key up&quot;)
+            }
+        }
+    })
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</td></tr></table></div>
+<img alt="../_images/事件冒泡.png" src="../_images/事件冒泡.png" />
+</div>
+</div>
+<div class="section" id="id12">
+<h2><span class="section-number">2.5. </span>条件判断<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="v-if">
+<h3><span class="section-number">2.5.1. </span>v-if<a class="headerlink" href="#v-if" title="Permalink to this headline">¶</a></h3>
+<p>简单的判定</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;app&quot;</span><span class="p">&gt;</span>
+<span class="c">&lt;!--    &lt;h2 v-if=&quot;isShow&quot;&gt;{{ cnt }}&lt;/h2&gt;--&gt;</span>
+
+
+    <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">v-if</span><span class="o">=</span><span class="s">&quot;isShow&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>abc<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="hll">        <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>abc<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span class="hll">        <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>abc<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span class="hll">        {{ message }}
+</span>    <span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="hll"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../js/vue.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span class="hll"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="kd">let</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+</span><span class="hll">        <span class="nx">el</span><span class="o">:</span> <span class="s2">&quot;#app&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+</span>            <span class="nx">isShow</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;abc&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="v-else-if">
+<h3><span class="section-number">2.5.2. </span>v-else-if<a class="headerlink" href="#v-else-if" title="Permalink to this headline">¶</a></h3>
+<p>稍微复杂的判定</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;app&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">v-if</span><span class="o">=</span><span class="s">&quot;score&gt;90&quot;</span><span class="p">&gt;</span>优秀 <span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">v-else-if</span><span class="o">=</span><span class="s">&quot;score&gt;80&quot;</span><span class="p">&gt;</span>良好<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">v-else-if</span><span class="o">=</span><span class="s">&quot;score&gt;60&quot;</span><span class="p">&gt;</span>及格 <span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">v-else</span><span class="p">&gt;</span> 不及格<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<span class="hll">    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">h2</span> <span class="p">&gt;</span> {{result}} <span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../js/vue.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="hll">    <span class="kd">let</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+</span><span class="hll">        <span class="nx">el</span><span class="o">:</span> <span class="s2">&quot;#app&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+</span><span class="hll">            <span class="nx">score</span><span class="o">:</span> <span class="mf">80</span>
+</span><span class="hll">        <span class="p">},</span>
+</span>        <span class="nx">computed</span><span class="o">:</span><span class="p">{</span>
+            <span class="nx">result</span><span class="p">(){</span>
+              <span class="kd">let</span> <span class="nx">message</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+              <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">score</span> <span class="o">&gt;</span><span class="mf">90</span><span class="p">){</span>
+                  <span class="nx">message</span> <span class="o">=</span><span class="s2">&quot;优秀&quot;</span>
+              <span class="p">}</span>
+              <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">score</span> <span class="o">&gt;</span><span class="mf">80</span><span class="p">){</span>
+                  <span class="nx">message</span><span class="o">=</span><span class="s2">&quot;良好&quot;</span>
+              <span class="p">}</span>
+              <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">score</span> <span class="o">&gt;</span><span class="mf">60</span><span class="p">){</span>
+                  <span class="nx">message</span><span class="o">=</span><span class="s2">&quot;及格&quot;</span>
+              <span class="p">}</span>
+              <span class="k">else</span>  <span class="p">{</span>
+                  <span class="nx">message</span> <span class="o">=</span> <span class="s2">&quot;不及格&quot;</span>
+              <span class="p">}</span>
+              <span class="k">return</span> <span class="nx">message</span>
+            <span class="p">},</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id13">
+<h3><span class="section-number">2.5.3. </span>用户登录案例<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>进行一个用户登录切换的案例</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre></div></td><td class="code"><div class="highlight"><pre><span></span>&lt;!DOCTYPE html&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+   &lt;span v-if=&quot;currentType == &#39;username&#39;&quot;&gt;用户名&lt;/span&gt;
+    &lt;span v-if=&quot;currentType == &#39;email&#39;&quot;&gt;用户邮箱&lt;/span&gt;
+    &lt;input type=&quot;text&quot;&gt; &lt;/input&gt;
+    &lt;button @click=&quot;btnClick&quot;&gt; 切登录方式&lt;/button&gt;
+&lt;/div&gt;
+<span class="hll">&lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+</span><span class="hll">&lt;script&gt;
+</span><span class="hll">    let app = new Vue({
+</span>        el: &quot;#app&quot;,
+        data: {
+           currentType: &quot;username&quot;,
+<span class="hll">        },
+</span><span class="hll">        methods:{
+</span><span class="hll">            btnClick(){
+</span><span class="hll">                if (this.currentType == &quot;username&quot; ){
+</span><span class="hll">                    this.currentType=&quot;email&quot;
+</span>                }
+                else if (this.currentType == &quot;email&quot; ){
+                    this.currentType=&quot;username&quot;
+                }
+            }
+        }
+    })
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="v-show">
+<h3><span class="section-number">2.5.4. </span>v-show<a class="headerlink" href="#v-show" title="Permalink to this headline">¶</a></h3>
+<p>当需要在显示和隐藏之间切回频繁的时候使用 v-show。只有一次切回使用v-if 。</p>
+</div>
+</div>
+<div class="section" id="id14">
+<h2><span class="section-number">2.6. </span>循环<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="v-for">
+<h3><span class="section-number">2.6.1. </span>v-for遍历数组<a class="headerlink" href="#v-for" title="Permalink to this headline">¶</a></h3>
+<p>简单遍历数组样例</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;app&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">li</span> <span class="na">v-for</span><span class="o">=</span><span class="s">&quot;(name,index) in names &quot;</span><span class="p">&gt;</span>{{index }} {{ name}}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="hll">        <span class="p">&lt;</span><span class="nt">li</span> <span class="na">v-for</span><span class="o">=</span><span class="s">&quot;(v,k,index) in person &quot;</span><span class="p">&gt;</span>{{index }} {{ k}} {{ v}}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span><span class="hll"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../js/vue.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kd">let</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+<span class="hll">        <span class="nx">el</span><span class="o">:</span> <span class="s2">&quot;#app&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+</span><span class="hll">           <span class="nx">names</span><span class="o">:</span> <span class="p">[</span> <span class="s2">&quot;panda&quot;</span><span class="p">,</span><span class="s2">&quot;pdna02&quot;</span><span class="p">,</span> <span class="s2">&quot;panda03&quot;</span><span class="p">],</span>
+</span><span class="hll">            <span class="nx">person</span><span class="o">:</span><span class="p">{</span>
+</span><span class="hll">               <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;zhaojiedi&#39;</span><span class="p">,</span>
+</span>                <span class="nx">age</span><span class="o">:</span> <span class="mf">28</span><span class="p">,</span>
+                <span class="nx">weight</span><span class="o">:</span> <span class="mf">60</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id15">
+<h3><span class="section-number">2.6.2. </span>v-for遍历对象<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<p>简单遍历数组样例</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;app&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">li</span> <span class="na">v-for</span><span class="o">=</span><span class="s">&quot;(v,k,index) in person &quot;</span><span class="p">&gt;</span>{{index }} {{ k}} {{ v}}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../js/vue.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="hll"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="kd">let</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+</span><span class="hll">        <span class="nx">el</span><span class="o">:</span> <span class="s2">&quot;#app&quot;</span><span class="p">,</span>
+</span>        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">person</span><span class="o">:</span><span class="p">{</span>
+               <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;zhaojiedi&#39;</span><span class="p">,</span>
+<span class="hll">                <span class="nx">age</span><span class="o">:</span> <span class="mf">28</span><span class="p">,</span>
+</span><span class="hll">                <span class="nx">weight</span><span class="o">:</span> <span class="mf">60</span><span class="p">,</span>
+</span><span class="hll">            <span class="p">}</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">    <span class="p">})</span>
+</span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="v-forkey">
+<h3><span class="section-number">2.6.3. </span>v-for遍历添加key<a class="headerlink" href="#v-forkey" title="Permalink to this headline">¶</a></h3>
+<p>添加key避免插入对象导致大量的对象移动。</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="highlight"><pre><span></span>&lt;!DOCTYPE html&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+    &lt;ul&gt;
+        &lt;li v-for=&quot;(name,index) in names &quot; :key=&quot;name&quot;&gt;{{index }} {{ name}}&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;button @click=&quot;btnClick&quot;&gt;添加&lt;/button&gt;
+<span class="hll">
+</span><span class="hll">&lt;/div&gt;
+</span><span class="hll">&lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+</span>&lt;script&gt;
+    let app = new Vue({
+        el: &quot;#app&quot;,
+<span class="hll">        data: {
+</span><span class="hll">            names: [ &quot;panda&quot;,&quot;pdna02&quot;, &quot;panda03&quot;],
+</span><span class="hll">            person:{
+</span><span class="hll">                name: &#39;zhaojiedi&#39;,
+</span><span class="hll">                age: 28,
+</span>                weight: 60,
+            }
+        },
+        methods:{
+            btnClick(){
+                this.names.push(&quot;panda05&quot;)
+            },
+        }
+    })
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id16">
+<h3><span class="section-number">2.6.4. </span>v-for数组哪些是响应式的<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<p>目前一些数组操作是支持响应式的， 不是所有修改都是响应式的。
+通过索引方式修改对象是无法响应式的。可以通过splice来实现。 或者使用vue.set方式。</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48</pre></div></td><td class="code"><div class="highlight"><pre><span></span>&lt;!DOCTYPE html&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+    &lt;ul&gt;
+        &lt;li v-for=&quot;(name,index) in names &quot; :key=&quot;name&quot;&gt;{{index }} {{ name}}&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;button @click=&quot;btnClick&quot;&gt;添加&lt;/button&gt;
+<span class="hll">
+</span><span class="hll">&lt;/div&gt;
+</span><span class="hll">&lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+</span>&lt;script&gt;
+    let app = new Vue({
+        el: &quot;#app&quot;,
+<span class="hll">        data: {
+</span><span class="hll">            names: [ &quot;panda&quot;,&quot;pdna02&quot;, &quot;panda03&quot;],
+</span><span class="hll">            person:{
+</span><span class="hll">                name: &#39;zhaojiedi&#39;,
+</span><span class="hll">                age: 28,
+</span>                weight: 60,
+            }
+        },
+        methods:{
+            btnClick(){
+                //push
+                // pop
+                // unshift
+                // splice
+                // sort
+                // reverse
+
+                this.names.push(&quot;panda05&quot;)
+
+                // 这是非响应式的。
+                this.names[0]=&quot;zhaojiedi&quot;
+                // 这是响应式的
+                this.names.splice(1,1,&quot;zhaojiedi&quot;)
+                //这是是响应式的
+                Vue.set(this.names,0,&#39;zhaojiedi&#39;)
+            },
+        }
+    })
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="id17">
+<h2><span class="section-number">2.7. </span>购入车案例<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id18">
+<h3><span class="section-number">2.7.1. </span>案例考察点分析<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<p>本基础案例考察了如下几点</p>
+<ul class="simple">
+<li><p>html</p></li>
+<li><p>css</p></li>
+<li><p>v-if,v-else</p></li>
+<li><p>filters</p></li>
+<li><p>methods click</p></li>
+<li><p>computed</p></li>
+<li><p>v-for</p></li>
+</ul>
+</div>
+<div class="section" id="id19">
+<h3><span class="section-number">2.7.2. </span>详细代码<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<p>下面展示各个代码的详细内容。</p>
+<div class="section" id="html">
+<h4><span class="section-number">2.7.2.1. </span>html<a class="headerlink" href="#html" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42</pre></div></td><td class="code"><div class="highlight"><pre><span></span>&lt;!DOCTYPE html&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;div id=&quot;app&quot;&gt;
+
+<span class="hll">    &lt;div v-if=&quot;infos.length&gt;=1&quot;&gt;
+</span><span class="hll">&lt;table&gt;
+</span><span class="hll">    &lt;th&gt;
+</span>        &lt;td&gt;书籍名称&lt;/td&gt;
+        &lt;td&gt;出版日期&lt;/td&gt;
+        &lt;td&gt;价格&lt;/td&gt;
+<span class="hll">        &lt;td&gt;购买数量&lt;/td&gt;
+</span><span class="hll">        &lt;td&gt;操作&lt;/td&gt;
+</span><span class="hll">    &lt;/th&gt;
+</span><span class="hll">    &lt;tr v-for=&quot;(item,index) in infos&quot; &gt;
+</span><span class="hll">        &lt;td&gt;{{index}}&lt;/td&gt;
+</span>        &lt;td&gt;{{item.name}}&lt;/td&gt;
+        &lt;td&gt;{{item.date}}&lt;/td&gt;
+        &lt;td&gt;{{item.price|formatPrice}}&lt;/td&gt;
+        &lt;td&gt;
+            &lt;button @click=&quot;sub(item)&quot; :disabled=&quot;item.count&lt;=1&quot;&gt;-&lt;/button&gt;
+            {{item.count}}
+            &lt;button @click=&quot;add(item)&quot;&gt;+&lt;/button&gt;
+        &lt;/td&gt;
+        &lt;td&gt;&lt;button @click=&quot;removeLine(index)&quot;&gt;移除&lt;/button&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+   总价: {{totalPrice|formatPrice}}
+    &lt;/div&gt;
+    &lt;h2 v-else&gt;没有商品的&lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;../js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;./main.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id20">
+<h4><span class="section-number">2.7.2.2. </span>style<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-css notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nt">table</span><span class="p">{</span>
+    <span class="k">border-spacing</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">th</span><span class="o">,</span><span class="nt">td</span><span class="p">{</span>
+    <span class="k">padding</span><span class="p">:</span> <span class="mi">8</span><span class="kt">px</span> <span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">border</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span> <span class="mh">#e9e9e9</span><span class="p">;</span>
+    <span class="k">text-align</span><span class="p">:</span> <span class="kc">left</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">th</span><span class="p">{</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#f7f7f7</span><span class="p">;</span>
+    <span class="k">color</span><span class="p">:</span> <span class="mh">#5c6b77</span><span class="p">;</span>
+<span class="hll">    <span class="k">font-weight</span><span class="p">:</span> <span class="mi">600</span><span class="p">;</span>
+</span><span class="hll"><span class="p">}</span>
+</span></pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="js">
+<h4><span class="section-number">2.7.2.3. </span>js<a class="headerlink" href="#js" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-javascript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+        <span class="nx">infos</span><span class="o">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;算法导论&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="o">:</span> <span class="s2">&quot;2006-9&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="o">:</span> <span class="mf">85</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;编程艺术&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="o">:</span> <span class="s2">&quot;2006-2&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="o">:</span> <span class="mf">59</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;编程珠玑&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="o">:</span> <span class="s2">&quot;2008-10&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="o">:</span> <span class="mf">39</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;代码大全&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="o">:</span> <span class="s2">&quot;2006-3&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mf">1</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="o">:</span> <span class="mf">128</span><span class="p">},</span>
+        <span class="p">],</span>
+
+    <span class="p">},</span>
+    <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">add</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+<span class="hll">            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;add&quot;</span><span class="p">)</span>
+</span><span class="hll">           <span class="nx">item</span><span class="p">.</span><span class="nx">count</span><span class="o">++</span>
+</span><span class="hll">        <span class="p">},</span>
+</span>        <span class="nx">sub</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+           <span class="nx">item</span><span class="p">.</span><span class="nx">count</span><span class="o">--</span>
+        <span class="p">},</span>
+<span class="hll">        <span class="nx">removeLine</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">            <span class="k">this</span><span class="p">.</span><span class="nx">infos</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="mf">1</span><span class="p">)</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">    <span class="p">},</span>
+</span><span class="hll">    <span class="nx">filters</span><span class="o">:</span> <span class="p">{</span>
+</span>        <span class="nx">formatPrice</span><span class="p">(</span><span class="nx">price</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s2">&quot;¥ &quot;</span> <span class="o">+</span> <span class="nx">price</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">2</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nx">computed</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">totalPrice</span><span class="p">()</span> <span class="p">{</span>
+            <span class="kd">let</span> <span class="nx">totalPriceSum</span> <span class="o">=</span> <span class="mf">0</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">info</span> <span class="k">of</span> <span class="k">this</span><span class="p">.</span><span class="nx">infos</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">totalPriceSum</span> <span class="o">+=</span> <span class="nx">info</span><span class="p">.</span><span class="nx">count</span> <span class="o">*</span> <span class="nx">info</span><span class="p">.</span><span class="nx">price</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="nx">totalPriceSum</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../%E4%B8%AD%E7%BA%A7%E5%AD%A6%E4%B9%A0/%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91.html" class="btn btn-neutral float-right" title="1. 组件化开发" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="%E9%82%82%E9%80%85vue.html" class="btn btn-neutral float-left" title="1. 邂逅vue" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, zhaojiedi1992@outlook.com
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

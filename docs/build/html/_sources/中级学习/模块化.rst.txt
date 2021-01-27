@@ -1,0 +1,72 @@
+====================
+模块化
+====================
+
+为什么需要模块化
+====================
+
+起初js只是完成一些简单的脚本处理，随着ajax的出现，慢慢形成了前后端分离的阶段。
+前段完成工作越来越多，代码被组织在多个js文件中，维护和管理是个严重的问题。
+
+需要解决2个问题
+
+- 复用性
+- 可维护性
+
+使用模块作为出口的规范
+====================
+
+CommonJS
+    commonJS服务器端（nodeJS）的js模块规范,同步加载方式。
+ADM 
+    AMD是requireJS倡导的一种模块化规范，推崇依赖前置；在requireJS中模块是通过define来进行定义的，如果模块之间相互依赖，需要先将依赖模块导入进来，待导入完毕之后，在通过回调函数的方式执行后面的代码，有效的解决了模块依赖的问题。
+ES6Moudle
+    使用import/export语法，在文件顶部导入需要的模块，特点是：静态化  
+
+
+导出样例
+====================
+
+-----------------------
+CommonJS导出
+-----------------------
+
+.. literalinclude:: ../../中级学习/02-模块化/01-模块化开发/01-模块化开发导出.js
+   :encoding: utf-8
+   :language: javascript
+   :emphasize-lines: 1
+   :linenos:
+
+-----------------------
+CommonJS导入
+-----------------------
+
+.. literalinclude:: ../../中级学习/02-模块化/01-模块化开发/02-模块化开发导入.js
+   :encoding: utf-8
+   :language: javascript
+   :emphasize-lines: 1
+   :linenos:
+
+-----------------------
+ES6导出
+-----------------------
+
+.. literalinclude:: ../../中级学习/02-模块化/02-ES6模块化实现/xiaohong.js
+   :encoding: utf-8
+   :language: javascript
+   :emphasize-lines: 1
+   :linenos:
+
+.. tip:: text
+    某些情况下，一个模块中包含某个的功能，我们并不希望给这个功能命名，而且让导入者可以自己来命名， 使用export default <object>
+
+
+-----------------------
+ES6导入
+-----------------------
+
+.. literalinclude:: ../../中级学习/02-模块化/02-ES6模块化实现/xiaohong2.js
+   :encoding: utf-8
+   :language: javascript
+   :emphasize-lines: 1
+   :linenos: 

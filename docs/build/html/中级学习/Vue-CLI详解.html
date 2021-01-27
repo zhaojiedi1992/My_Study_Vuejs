@@ -1,0 +1,283 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Vue-CLI详解 &mdash; my-study-vuejs v0.0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> my-study-vuejs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">基础学习</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E9%82%82%E9%80%85vue.html">1. 邂逅vue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95.html">2. 基础语法</a></li>
+</ul>
+<p class="caption"><span class="caption-text">中级学习</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91.html">1. 组件化开发</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%A8%A1%E5%9D%97%E5%8C%96.html">2. 模块化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webpack.html">3. webpack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="router.html">4. router</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vuex%E8%AF%A6%E8%A7%A3.html">5. vuex详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%BD%91%E7%BB%9C%E5%B0%81%E8%A3%85.html">6. 网络封装</a></li>
+</ul>
+<p class="caption"><span class="caption-text">项目学习</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98.html">1. 项目实战</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2.html">2. 项目部署</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3.html">3. 原理详解</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">my-study-vuejs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Vue-CLI详解</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/中级学习/Vue-CLI详解.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="vue-cli">
+<h1>Vue-CLI详解<a class="headerlink" href="#vue-cli" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>什么是Vue Cli<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Vue CLI是一个官方发布 vue.js 项目脚手架,使用 vue-cli 可以快速搭建Vue开发环境以及对应的webpack配置.</p>
+<p>官方的文档： <a class="reference external" href="https://cli.vuejs.org/zh/guide/">vue-cli</a></p>
+</div>
+<div class="section" id="id3">
+<h2>安装vue cli<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>安装vue cli 最新版本<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm install -g @vue/cli
+<span class="c1"># OR</span>
+yarn global add @vue/cli
+</pre></div>
+</div>
+<p>如果你想按照vue cli2的方式初始化项目，还需要如下安装</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm install -g @vue/cli-init
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>初始化项目<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p><strong>使用最新的方式创建项目</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vue create  my-project1
+</pre></div>
+</div>
+<p><strong>创建vue-cli2的方式</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vue init webpack my-project2
+</pre></div>
+</div>
+</div>
+<div class="section" id="vue-cli2">
+<h3>vue cli2 详解<a class="headerlink" href="#vue-cli2" title="Permalink to this headline">¶</a></h3>
+<p>创建过程会进行一系列的咨询。如下图：</p>
+<img alt="../_images/vue-cli2详解.png" src="../_images/vue-cli2详解.png" />
+<p>各个目录说明如下：</p>
+<img alt="../_images/vue-cli2目录说明.png" src="../_images/vue-cli2目录说明.png" />
+</div>
+</div>
+<div class="section" id="id6">
+<h2>构建命令说明<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="npm-run-build">
+<h3>npm run build<a class="headerlink" href="#npm-run-build" title="Permalink to this headline">¶</a></h3>
+<img alt="../_images/build.png" src="../_images/build.png" />
+</div>
+<div class="section" id="npm-run-dev">
+<h3>npm run dev<a class="headerlink" href="#npm-run-dev" title="Permalink to this headline">¶</a></h3>
+<img alt="../_images/dev.png" src="../_images/dev.png" />
+</div>
+</div>
+<div class="section" id="vue-cli3">
+<h2>Vue CLI3<a class="headerlink" href="#vue-cli3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cli3cli2">
+<h3>cli3和cli2的区别<a class="headerlink" href="#cli3cli2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>vue-cli 3 与 2 版本有很大区别</p></li>
+<li><p>vue-cli 3 是基于 webpack 4 打造，vue-cli 2 还是 webapck 3</p></li>
+<li><p>vue-cli 3 的设计原则是“0配置”，移除的配置文件根目录下的，build和config等目录</p></li>
+<li><p>vue-cli 3 提供了 vue ui 命令，提供了可视化配置，更加人性化</p></li>
+<li><p>移除了static文件夹，新增了public文件夹，并且index.html移动到public中</p></li>
+</ul>
+</div>
+<div class="section" id="cli3">
+<h3>cli3的配置<a class="headerlink" href="#cli3" title="Permalink to this headline">¶</a></h3>
+<p>cli3的配置可以通过vue ui进行插件的安装和配置文件管理。</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, zhaojiedi1992@outlook.com
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
