@@ -25,7 +25,7 @@
       <div v-for="index in 30">{{index }}</div>
     </div>
     </scroll>
-      <detail-card-bar></detail-card-bar>
+      <detail-card-bar @Add2Cart="Add2Cart"></detail-card-bar>
   </div>
 </template>
 
@@ -124,6 +124,22 @@ export default {
       this.$refs.scroll.scrollTo(0, -this.offsetInfo[index], 0.5)
 
     },
+    Add2Cart(){
+      console.log("add2 ")
+      let product = {}
+      console.log("goods")
+      console.log(this.goods)
+      product.iid = this.iid
+      product.imgUrl = this.topImages[0]
+      product.title = this.goods.title
+      product.desc =this.goods.desc
+      product.price = this.goods.realPrice
+      console.log(product)
+      this.$store.dispatch("Add2Cart",product).then(res=>{
+        console.log("Add2Cart success")
+      })
+
+    }
 
   }
 }

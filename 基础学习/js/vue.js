@@ -916,7 +916,7 @@
   /**
    * Observer class that is attached to each observed
    * object. Once attached, the observer converts the target
-   * object's property keys into getter/setters that
+   * object's property keys into getters/setters that
    * collect dependencies and dispatch updates.
    */
   var Observer = function Observer (value) {
@@ -938,7 +938,7 @@
 
   /**
    * Walk through all properties and convert them into
-   * getter/setters. This method should only be called when
+   * getters/setters. This method should only be called when
    * value type is Object.
    */
   Observer.prototype.walk = function walk (obj) {
@@ -1025,7 +1025,7 @@
       return
     }
 
-    // cater for pre-defined getter/setters
+    // cater for pre-defined getters/setters
     var getter = property && property.get;
     var setter = property && property.set;
     if ((!getter || setter) && arguments.length === 2) {
@@ -4447,7 +4447,7 @@
     this.depIds = new _Set();
     this.newDepIds = new _Set();
     this.expression = expOrFn.toString();
-    // parse expression for getter
+    // parse expression for getters
     if (typeof expOrFn === 'function') {
       this.getter = expOrFn;
     } else {
@@ -4468,7 +4468,7 @@
   };
 
   /**
-   * Evaluate the getter, and re-collect dependencies.
+   * Evaluate the getters, and re-collect dependencies.
    */
   Watcher.prototype.get = function get () {
     pushTarget(this);
@@ -4478,7 +4478,7 @@
       value = this.getter.call(vm, vm);
     } catch (e) {
       if (this.user) {
-        handleError(e, vm, ("getter for watcher \"" + (this.expression) + "\""));
+        handleError(e, vm, ("getters for watcher \"" + (this.expression) + "\""));
       } else {
         throw e
       }

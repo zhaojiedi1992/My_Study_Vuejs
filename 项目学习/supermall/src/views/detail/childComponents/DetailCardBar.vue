@@ -27,8 +27,8 @@ export default {
 name: "DetailCardBar",
   methods:{
     Add2Cart(){
-      let product = {}
-      product.iid = this.
+      console.log("add1 ")
+     this.$emit("Add2Cart")
     }
   }
 }
